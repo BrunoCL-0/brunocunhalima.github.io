@@ -1,0 +1,59 @@
+---
+import { languages, type Language } from "@i18n/config";
+
+type Props = {
+  language: Language;
+};
+
+const { language } = Astro.props;
+const nav = {
+  pt: [
+    ["Projetos", "#projects"],
+    ["Experiência", "#experience"],
+    ["Publicações", "#publications"],
+    ["Contato", "#contact"]
+  ],
+  en: [
+    ["Projects", "#projects"],
+    ["Experience", "#experience"],
+    ["Publications", "#publications"],
+    ["Contact", "#contact"]
+  ]
+} as const;
+const labels = {
+  pt: {
+    skip: "Ir para o conteúdo",
+    nav: "Navegação principal",
+    language: "Seletor de idioma"
+  },
+  en: {
+    skip: "Skip to content",
+    nav: "Primary navigation",
+    language: "Language selector"
+  }
+} as const;
+---
+
+<header class="site-header">
+  <a class="skip-link" href="#content">{labels[language].skip}</a>
+  <nav class="nav-shell" aria-label={labels[language].nav}>
+    <a class="brand" href={languages[language].path}>Bruno Cunha Lima</a>
+    <div class="nav-links">
+      {nav[language].map(([label, href]) => <a href={href}>{label}</a>)}
+    </div>
+    <div class="language-switch" aria-label={labels[language].language}>
+      <a href={languages.pt.path} data-language-switch="pt" aria-current={language === "pt" ? "page" : undefined}>PT</a>
+      <span aria-hidden="true">|</span>
+      <a href={languages.en.path} data-language-switch="en" aria-current={language === "en" ? "page" : undefined}>EN</a>
+    </div>
+  </nav>
+</header>
+
+<script>
+  document.querySelectorAll("[data-language-switch]").forEach((switcher) => {
+    switcher.addEventListener("click", () => {
+      const language = switcher.getAttribute("data-language-switch");
+      if (language) localStorage.setItem("preferred-language", language);
+    });
+  });
+</script>

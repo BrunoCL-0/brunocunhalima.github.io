@@ -1,0 +1,11 @@
+---
+import HomePage from "@components/HomePage.astro";
+import BaseLayout from "@layouts/BaseLayout.astro";
+
+const description =
+  "Portfolio of Bruno Cunha Lima, an Electrical Engineering student focused on robotics, ROS 2, and autonomous systems.";
+---
+
+<BaseLayout title="Bruno Cunha Lima | Portfolio" description={description} language="en">
+  <HomePage language="en" />
+</BaseLayout>

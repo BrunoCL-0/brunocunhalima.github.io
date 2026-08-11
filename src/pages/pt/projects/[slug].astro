@@ -1,0 +1,22 @@
+---
+import BaseLayout from "@layouts/BaseLayout.astro";
+import { projects } from "@content/projects";
+
+export function getStaticPaths() {
+  return projects.map((project) => ({
+    params: { slug: project.slug },
+    props: { project }
+  }));
+}
+
+const { project } = Astro.props;
+---
+
+<BaseLayout title={`${project.title.pt} | Bruno Cunha Lima`} description={project.summary.pt} language="pt">
+  <article class="section project-detail">
+    <a href="/pt/#projects">Voltar</a>
+    <h1>{project.title.pt}</h1>
+    <p>{project.summary.pt}</p>
+    <p>TODO: estruturar contexto, problema, contribuição, abordagem técnica, desafios, resultados, aprendizados, mídia e links.</p>
+  </article>
+</BaseLayout>

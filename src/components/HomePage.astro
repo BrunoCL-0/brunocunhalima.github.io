@@ -1,0 +1,120 @@
+---
+import { profile } from "@content/profile";
+import { projects } from "@content/projects";
+import { publications } from "@content/publications";
+import type { Language } from "@i18n/config";
+
+type Props = {
+  language: Language;
+};
+
+const { language } = Astro.props;
+
+const copy = {
+  pt: {
+    featuredProjects: "Projetos em destaque",
+    experience: "Experiência",
+    publications: "Publicações",
+    skills: "Competências técnicas",
+    education: "Formação",
+    contact: "Contato",
+    contactTodo: "TODO: definir quais links públicos serão exibidos.",
+    experienceTodo:
+      "Base preparada para incluir estágio em robótica, pesquisa, monitoria e experiência em projetos elétricos sem inflar senioridade.",
+    projectCta: "Ver estudo de caso"
+  },
+  en: {
+    featuredProjects: "Featured projects",
+    experience: "Experience",
+    publications: "Publications",
+    skills: "Technical skills",
+    education: "Education",
+    contact: "Contact",
+    contactTodo: "TODO: define which public links will be displayed.",
+    experienceTodo:
+      "Structure prepared for robotics internship, research, teaching assistant work, and electrical projects experience without overstating seniority.",
+    projectCta: "View case study"
+  }
+} as const;
+
+const t = copy[language];
+const hero = profile.hero[language];
+---
+
+<section class="hero">
+  <p class="eyebrow">{hero.eyebrow}</p>
+  <h1>{hero.title}</h1>
+  <p class="hero-summary">{hero.summary}</p>
+  <ul class="focus-list" aria-label="Focus areas">
+    {profile.focusAreas.map((area) => <li>{area}</li>)}
+  </ul>
+</section>
+
+<section class="section" id="projects">
+  <div class="section-heading">
+    <h2>{t.featuredProjects}</h2>
+  </div>
+  <div class="project-grid">
+    {
+      projects.map((project) => (
+        <article class="project-card">
+          <p class="project-status">{project.status}</p>
+          <h3>{project.title[language]}</h3>
+          <p>{project.summary[language]}</p>
+          <ul class="tag-list">
+            {project.tags.map((tag) => <li>{tag}</li>)}
+          </ul>
+          <a href={`/${language}/projects/${project.slug}/`}>{t.projectCta}</a>
+        </article>
+      ))
+    }
+  </div>
+</section>
+
+<section class="section" id="experience">
+  <div class="section-heading">
+    <h2>{t.experience}</h2>
+  </div>
+  <p>{t.experienceTodo}</p>
+</section>
+
+<section class="section" id="publications">
+  <div class="section-heading">
+    <h2>{t.publications}</h2>
+  </div>
+  <div class="publication-list">
+    {
+      publications.map((publication) => (
+        <article>
+          <h3>{publication.title}</h3>
+          <p>{publication.venue}</p>
+          {publication.status && <p>{publication.status[language]}</p>}
+          {publication.href && <a href={publication.href}>Link</a>}
+        </article>
+      ))
+    }
+  </div>
+</section>
+
+<section class="section" id="skills">
+  <div class="section-heading">
+    <h2>{t.skills}</h2>
+  </div>
+  <ul class="tag-list">
+    {profile.focusAreas.map((area) => <li>{area}</li>)}
+  </ul>
+</section>
+
+<section class="section" id="education">
+  <div class="section-heading">
+    <h2>{t.education}</h2>
+  </div>
+  <p>{profile.education[language]}</p>
+</section>
+
+<section class="section" id="contact">
+  <div class="section-heading">
+    <h2>{t.contact}</h2>
+  </div>
+  <p>{t.contactTodo}</p>
+</section>
