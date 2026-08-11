@@ -1,7 +1,7 @@
 ---
 import { languages } from "@i18n/config";
 import { withBase } from "@utils/paths";
-import brunoPhoto from "../assets/bruno-robotics.jpeg";
+import brunoPhoto from "../assets/bruno-portrait.png";
 import "@styles/global.css";
 ---
 
@@ -20,22 +20,21 @@ import "@styles/global.css";
           <p class="eyebrow">Electrical Engineering + Robotics + Software</p>
           <h1>Bruno Cunha Lima</h1>
           <p>
-            Portfólio pessoal com projetos, pesquisa, publicações e experiência prática em robótica,
-            ROS 2, sistemas autônomos e engenharia elétrica.
+            Personal portfolio with projects, research, publications, and hands-on work in robotics,
+            ROS 2, autonomous systems, and electrical engineering.
           </p>
           <div class="hero-actions">
-            <a class="button primary" href={withBase(languages.pt.path)} data-language="pt">Português</a>
-            <a class="button secondary" href={withBase(languages.en.path)} data-language="en">English</a>
+            <a class="button primary" href={withBase("en/#projects")} data-language="en">See projects</a>
+            <a class="button secondary" href={withBase(languages.pt.path)} data-language="pt">Português</a>
           </div>
         </div>
-        <img src={brunoPhoto.src} alt="Bruno Cunha Lima trabalhando em uma demonstração de robótica no SENAI CIMATEC" />
+        <img src={brunoPhoto.src} alt="Portrait of Bruno Cunha Lima" />
       </section>
     </main>
     <script>
       const preferredLanguage = localStorage.getItem("preferred-language");
       const base = import.meta.env.BASE_URL;
       if (preferredLanguage === "pt") window.location.replace(`${base}pt/`);
-      if (preferredLanguage === "en") window.location.replace(`${base}en/`);
 
       document.querySelectorAll("[data-language]").forEach((link) => {
         link.addEventListener("click", () => {

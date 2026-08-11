@@ -4,7 +4,9 @@ import { projects } from "@content/projects";
 import { publications } from "@content/publications";
 import { experiences, extracurriculars } from "@content/experience";
 import { skillGroups } from "@content/skills";
-import brunoPhoto from "../assets/bruno-robotics.jpeg";
+import brunoPhoto from "../assets/bruno-portrait.png";
+import indexPhoto from "../assets/bruno-robotics.jpeg";
+import turtlebotPhoto from "../assets/turtlebot2i-retrofit.jpeg";
 import type { Language } from "@i18n/config";
 import { withBase } from "@utils/paths";
 
@@ -27,6 +29,11 @@ const copy = {
     featuredProjects: "Projetos em destaque",
     projectIntro:
       "Estudos de caso pensados para mostrar contexto, decisões técnicas e aprendizado, não apenas uma lista de tecnologias.",
+    media: "Registros",
+    mediaIntro:
+      "Algumas imagens ajudam a contextualizar projetos, apresentações e demonstrações técnicas.",
+    indexCaption:
+      "Participação no evento INDEX com demonstração de robótica e manipulação móvel no SENAI CIMATEC.",
     experience: "Experiência profissional",
     extracurricular: "Pesquisa voluntária e equipes",
     publications: "Publicações",
@@ -59,6 +66,11 @@ const copy = {
     featuredProjects: "Featured projects",
     projectIntro:
       "Case studies designed to show context, technical decisions, and learning instead of only listing technologies.",
+    media: "Media",
+    mediaIntro:
+      "A few images help contextualize projects, presentations, and technical demonstrations.",
+    indexCaption:
+      "Participation at the INDEX event with a robotics and mobile manipulation demonstration at SENAI CIMATEC.",
     experience: "Experience",
     extracurricular: "Volunteer research and teams",
     publications: "Publications",
@@ -92,29 +104,15 @@ const hero = profile.hero[language];
     <p class="hero-summary">{hero.summary}</p>
     <p class="hero-note">{hero.availability}</p>
     <div class="hero-actions">
-      <a class="button primary" href="#portfolio">{t.enterPortfolio}</a>
-      <a class="button secondary" href="#projects">{t.seeProjects}</a>
+      <a class="button primary" href="#projects">{t.seeProjects}</a>
     </div>
   </div>
   <aside class="hero-photo-card" aria-label="Bruno Cunha Lima em ambiente de robótica">
-    <img src={brunoPhoto.src} alt="Bruno Cunha Lima trabalhando em uma demonstração de robótica no SENAI CIMATEC" />
+    <img src={brunoPhoto.src} alt="Retrato de Bruno Cunha Lima" />
     <ul class="focus-list" aria-label="Focus areas">
       {profile.focusAreas.map((area) => <li>{area}</li>)}
     </ul>
   </aside>
-</section>
-
-<section class="section explore-section" id="portfolio">
-  <div class="section-heading">
-    <h2>{t.exploreTitle}</h2>
-    <p>{t.exploreText}</p>
-  </div>
-  <div class="explore-grid">
-    <a href="#projects">{t.seeProjects}</a>
-    <a href="#experience">{t.seeExperience}</a>
-    <a href="#publications">{t.seeResearch}</a>
-    <a href="#skills">{t.skills}</a>
-  </div>
 </section>
 
 <section class="section" id="projects">
@@ -126,11 +124,21 @@ const hero = profile.hero[language];
     {
       projects.map((project) => (
         <article class="project-card">
-          <div class="project-visual" aria-hidden="true">
-            <span></span>
-            <span></span>
-            <span></span>
-          </div>
+          {
+            project.image ? (
+              <img
+                class="project-image"
+                src={project.image === "turtlebot2i-retrofit.jpeg" ? turtlebotPhoto.src : ""}
+                alt={project.imageAlt[language]}
+              />
+            ) : (
+              <div class="project-visual" aria-hidden="true">
+                <span />
+                <span />
+                <span />
+              </div>
+            )
+          }
           <p class="project-status">{t.status[project.status]}</p>
           <h3>{project.title[language]}</h3>
           <p>{project.summary[language]}</p>
@@ -143,6 +151,17 @@ const hero = profile.hero[language];
       ))
     }
   </div>
+</section>
+
+<section class="section" id="media">
+  <div class="section-heading">
+    <h2>{t.media}</h2>
+    <p>{t.mediaIntro}</p>
+  </div>
+  <figure class="media-feature">
+    <img src={indexPhoto.src} alt="Bruno Cunha Lima em demonstração de robótica no evento INDEX" />
+    <figcaption>{t.indexCaption}</figcaption>
+  </figure>
 </section>
 
 <section class="section" id="experience">

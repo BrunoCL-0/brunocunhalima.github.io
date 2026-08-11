@@ -3,6 +3,8 @@ import type { Language } from "@i18n/config";
 export type Project = {
   slug: string;
   priority: number;
+  image?: string;
+  imageAlt: Record<Language, string>;
   title: Record<Language, string>;
   summary: Record<Language, string>;
   context: Record<Language, string>;
@@ -15,6 +17,11 @@ const projectItems: Project[] = [
   {
     slug: "turtlebot2i-ros2-retrofit",
     priority: 1,
+    image: "turtlebot2i-retrofit.jpeg",
+    imageAlt: {
+      pt: "TurtleBot2i com sensores RGB-D e LiDAR usado no projeto de retrofit para ROS 2",
+      en: "TurtleBot2i with RGB-D sensors and LiDAR used in the ROS 2 retrofit project"
+    },
     title: {
       pt: "Retrofit do TurtleBot2i para ROS 2",
       en: "TurtleBot2i Retrofit for ROS 2"
@@ -45,6 +52,10 @@ const projectItems: Project[] = [
   {
     slug: "agv-mobile-manipulation",
     priority: 2,
+    imageAlt: {
+      pt: "Representação visual temporária do projeto de AGV com manipulador",
+      en: "Temporary visual representation of the AGV with robotic manipulator project"
+    },
     title: {
       pt: "AGV com manipulador robótico",
       en: "AGV with robotic manipulator"
@@ -75,6 +86,10 @@ const projectItems: Project[] = [
   {
     slug: "h2-racing-powertrain",
     priority: 3,
+    imageAlt: {
+      pt: "Representação visual temporária do projeto TEC H2-Racing",
+      en: "Temporary visual representation of the TEC H2-Racing project"
+    },
     title: {
       pt: "TEC H2-Racing - Powertrain",
       en: "TEC H2-Racing - Powertrain"
