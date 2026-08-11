@@ -1,5 +1,6 @@
 ---
 import { languages, type Language } from "@i18n/config";
+import { withBase } from "@utils/paths";
 
 type Props = {
   language: Language;
@@ -37,14 +38,14 @@ const labels = {
 <header class="site-header">
   <a class="skip-link" href="#content">{labels[language].skip}</a>
   <nav class="nav-shell" aria-label={labels[language].nav}>
-    <a class="brand" href={languages[language].path}>Bruno Cunha Lima</a>
+    <a class="brand" href={withBase(languages[language].path)}>Bruno Cunha Lima</a>
     <div class="nav-links">
       {nav[language].map(([label, href]) => <a href={href}>{label}</a>)}
     </div>
     <div class="language-switch" aria-label={labels[language].language}>
-      <a href={languages.pt.path} data-language-switch="pt" aria-current={language === "pt" ? "page" : undefined}>PT</a>
+      <a href={withBase(languages.pt.path)} data-language-switch="pt" aria-current={language === "pt" ? "page" : undefined}>PT</a>
       <span aria-hidden="true">|</span>
-      <a href={languages.en.path} data-language-switch="en" aria-current={language === "en" ? "page" : undefined}>EN</a>
+      <a href={withBase(languages.en.path)} data-language-switch="en" aria-current={language === "en" ? "page" : undefined}>EN</a>
     </div>
   </nav>
 </header>

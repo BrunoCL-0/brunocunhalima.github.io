@@ -63,6 +63,34 @@ O objetivo é publicar pelo GitHub Pages. Visitantes do site não precisam insta
 
 Quem quiser editar o projeto deve clonar o repositório e rodar o setup acima uma vez.
 
+### Opções de link no GitHub Pages
+
+Para ter um link direto no formato:
+
+```text
+https://SEU_USUARIO.github.io/
+```
+
+crie o repositório com o nome exato:
+
+```text
+SEU_USUARIO.github.io
+```
+
+Para usar um repositório chamado `portifolio`, o link público fica assim:
+
+```text
+https://SEU_USUARIO.github.io/portifolio/
+```
+
+O projeto já possui workflow em `.github/workflows/deploy.yml` para publicar automaticamente no GitHub Pages quando houver push na branch `main`.
+
+Depois de subir o repositório para o GitHub, ative em:
+
+```text
+Settings > Pages > Build and deployment > Source > GitHub Actions
+```
+
 ## Estrutura
 
 ```text

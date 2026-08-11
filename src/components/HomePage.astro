@@ -4,7 +4,9 @@ import { projects } from "@content/projects";
 import { publications } from "@content/publications";
 import { experiences, extracurriculars } from "@content/experience";
 import { skillGroups } from "@content/skills";
+import brunoPhoto from "../assets/bruno-robotics.jpeg";
 import type { Language } from "@i18n/config";
+import { withBase } from "@utils/paths";
 
 type Props = {
   language: Language;
@@ -14,8 +16,13 @@ const { language } = Astro.props;
 
 const copy = {
   pt: {
+    enterPortfolio: "Ver portfólio",
     seeProjects: "Ver projetos",
+    seeExperience: "Ver experiência",
     seeResearch: "Ver publicações",
+    exploreTitle: "Escolha o que explorar",
+    exploreText:
+      "Se quiser ir direto ao ponto, comece pelos projetos. Eles contam melhor como engenharia elétrica, software e robótica se conectam no meu trabalho.",
     current: "Atual",
     featuredProjects: "Projetos em destaque",
     projectIntro:
@@ -41,8 +48,13 @@ const copy = {
     }
   },
   en: {
+    enterPortfolio: "View portfolio",
     seeProjects: "See projects",
+    seeExperience: "See experience",
     seeResearch: "See publications",
+    exploreTitle: "Choose what to explore",
+    exploreText:
+      "If you want the shortest path, start with the projects. They best show how electrical engineering, software, and robotics connect in my work.",
     current: "Current",
     featuredProjects: "Featured projects",
     projectIntro:
@@ -80,23 +92,29 @@ const hero = profile.hero[language];
     <p class="hero-summary">{hero.summary}</p>
     <p class="hero-note">{hero.availability}</p>
     <div class="hero-actions">
-      <a class="button primary" href="#projects">{t.seeProjects}</a>
-      <a class="button secondary" href="#publications">{t.seeResearch}</a>
+      <a class="button primary" href="#portfolio">{t.enterPortfolio}</a>
+      <a class="button secondary" href="#projects">{t.seeProjects}</a>
     </div>
   </div>
-  <aside class="hero-panel" aria-label="Technical focus">
-    <div class="signal-grid" aria-hidden="true">
-      <span></span>
-      <span></span>
-      <span></span>
-      <span></span>
-      <span></span>
-      <span></span>
-    </div>
+  <aside class="hero-photo-card" aria-label="Bruno Cunha Lima em ambiente de robótica">
+    <img src={brunoPhoto.src} alt="Bruno Cunha Lima trabalhando em uma demonstração de robótica no SENAI CIMATEC" />
     <ul class="focus-list" aria-label="Focus areas">
       {profile.focusAreas.map((area) => <li>{area}</li>)}
     </ul>
   </aside>
+</section>
+
+<section class="section explore-section" id="portfolio">
+  <div class="section-heading">
+    <h2>{t.exploreTitle}</h2>
+    <p>{t.exploreText}</p>
+  </div>
+  <div class="explore-grid">
+    <a href="#projects">{t.seeProjects}</a>
+    <a href="#experience">{t.seeExperience}</a>
+    <a href="#publications">{t.seeResearch}</a>
+    <a href="#skills">{t.skills}</a>
+  </div>
 </section>
 
 <section class="section" id="projects">
@@ -120,7 +138,7 @@ const hero = profile.hero[language];
           <ul class="tag-list">
             {project.tags.map((tag) => <li>{tag}</li>)}
           </ul>
-          <a href={`/${language}/projects/${project.slug}/`}>{t.projectCta}</a>
+          <a href={withBase(`${language}/projects/${project.slug}/`)}>{t.projectCta}</a>
         </article>
       ))
     }
@@ -205,8 +223,8 @@ const hero = profile.hero[language];
     {
       publications.map((publication) => (
         <article>
-          <h3>{publication.title}</h3>
-          <p>{publication.venue}</p>
+          <h3>{publication.title[language]}</h3>
+          <p>{publication.venue[language]}</p>
           {publication.status && <p>{publication.status[language]}</p>}
           {publication.href && <a href={publication.href}>Link</a>}
         </article>

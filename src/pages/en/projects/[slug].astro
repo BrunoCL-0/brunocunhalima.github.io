@@ -1,6 +1,7 @@
 ---
 import BaseLayout from "@layouts/BaseLayout.astro";
 import { projects } from "@content/projects";
+import { withBase } from "@utils/paths";
 
 export function getStaticPaths() {
   return projects.map((project) => ({
@@ -14,7 +15,7 @@ const { project } = Astro.props;
 
 <BaseLayout title={`${project.title.en} | Bruno Cunha Lima`} description={project.summary.en} language="en">
   <article class="section project-detail">
-    <a href="/en/#projects">Back</a>
+    <a href={withBase("en/#projects")}>Back</a>
     <p class="eyebrow">Case study</p>
     <h1>{project.title.en}</h1>
     <p>{project.summary.en}</p>
