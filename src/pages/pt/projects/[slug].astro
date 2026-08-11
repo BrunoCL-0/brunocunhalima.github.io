@@ -15,8 +15,22 @@ const { project } = Astro.props;
 <BaseLayout title={`${project.title.pt} | Bruno Cunha Lima`} description={project.summary.pt} language="pt">
   <article class="section project-detail">
     <a href="/pt/#projects">Voltar</a>
+    <p class="eyebrow">Estudo de caso</p>
     <h1>{project.title.pt}</h1>
     <p>{project.summary.pt}</p>
-    <p>TODO: estruturar contexto, problema, contribuição, abordagem técnica, desafios, resultados, aprendizados, mídia e links.</p>
+    <section>
+      <h2>Contexto</h2>
+      <p>{project.context.pt}</p>
+    </section>
+    <section>
+      <h2>Minha contribuição</h2>
+      <ul>
+        {project.contribution.pt.map((item) => <li>{item}</li>)}
+      </ul>
+    </section>
+    <section>
+      <h2>Próximos detalhes</h2>
+      <p>TODO: complementar problema, abordagem técnica, desafios, resultados, aprendizados, mídia e links confirmados.</p>
+    </section>
   </article>
 </BaseLayout>

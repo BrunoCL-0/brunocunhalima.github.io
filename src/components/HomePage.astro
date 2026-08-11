@@ -2,6 +2,8 @@
 import { profile } from "@content/profile";
 import { projects } from "@content/projects";
 import { publications } from "@content/publications";
+import { experiences, extracurriculars } from "@content/experience";
+import { skillGroups } from "@content/skills";
 import type { Language } from "@i18n/config";
 
 type Props = {
@@ -12,28 +14,58 @@ const { language } = Astro.props;
 
 const copy = {
   pt: {
+    seeProjects: "Ver projetos",
+    seeResearch: "Ver publicações",
+    current: "Atual",
     featuredProjects: "Projetos em destaque",
-    experience: "Experiência",
+    projectIntro:
+      "Estudos de caso pensados para mostrar contexto, decisões técnicas e aprendizado, não apenas uma lista de tecnologias.",
+    experience: "Experiência profissional",
+    extracurricular: "Pesquisa voluntária e equipes",
     publications: "Publicações",
+    publicationIntro:
+      "Trabalhos acadêmicos relacionados a robótica, IoT, automação e modelagem aplicada.",
     skills: "Competências técnicas",
+    skillsIntro:
+      "Sem barras de porcentagem: as tecnologias aparecem agrupadas pelo tipo de problema em que foram usadas.",
     education: "Formação",
     contact: "Contato",
-    contactTodo: "TODO: definir quais links públicos serão exibidos.",
-    experienceTodo:
-      "Base preparada para incluir estágio em robótica, pesquisa, monitoria e experiência em projetos elétricos sem inflar senioridade.",
-    projectCta: "Ver estudo de caso"
+    contactTodo:
+      "Links públicos pendentes de confirmação. Por padrão, endereço, telefone, data e local de nascimento não serão publicados.",
+    projectCta: "Ver estudo de caso",
+    caseStudy: "Estudo de caso",
+    role: "Contribuição",
+    status: {
+      featured: "Destaque",
+      draft: "Em revisão"
+    }
   },
   en: {
+    seeProjects: "See projects",
+    seeResearch: "See publications",
+    current: "Current",
     featuredProjects: "Featured projects",
+    projectIntro:
+      "Case studies designed to show context, technical decisions, and learning instead of only listing technologies.",
     experience: "Experience",
+    extracurricular: "Volunteer research and teams",
     publications: "Publications",
+    publicationIntro:
+      "Academic work related to robotics, IoT, automation, and applied modeling.",
     skills: "Technical skills",
+    skillsIntro:
+      "No arbitrary percentage bars: technologies are grouped by the type of problem where they were used.",
     education: "Education",
     contact: "Contact",
-    contactTodo: "TODO: define which public links will be displayed.",
-    experienceTodo:
-      "Structure prepared for robotics internship, research, teaching assistant work, and electrical projects experience without overstating seniority.",
-    projectCta: "View case study"
+    contactTodo:
+      "Public links pending confirmation. By default, address, phone number, date of birth, and place of birth will not be published.",
+    projectCta: "View case study",
+    caseStudy: "Case study",
+    role: "Contribution",
+    status: {
+      featured: "Featured",
+      draft: "Under review"
+    }
   }
 } as const;
 
@@ -42,25 +74,49 @@ const hero = profile.hero[language];
 ---
 
 <section class="hero">
-  <p class="eyebrow">{hero.eyebrow}</p>
-  <h1>{hero.title}</h1>
-  <p class="hero-summary">{hero.summary}</p>
-  <ul class="focus-list" aria-label="Focus areas">
-    {profile.focusAreas.map((area) => <li>{area}</li>)}
-  </ul>
+  <div class="hero-copy">
+    <p class="eyebrow">{hero.eyebrow}</p>
+    <h1>{hero.title}</h1>
+    <p class="hero-summary">{hero.summary}</p>
+    <p class="hero-note">{hero.availability}</p>
+    <div class="hero-actions">
+      <a class="button primary" href="#projects">{t.seeProjects}</a>
+      <a class="button secondary" href="#publications">{t.seeResearch}</a>
+    </div>
+  </div>
+  <aside class="hero-panel" aria-label="Technical focus">
+    <div class="signal-grid" aria-hidden="true">
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+    <ul class="focus-list" aria-label="Focus areas">
+      {profile.focusAreas.map((area) => <li>{area}</li>)}
+    </ul>
+  </aside>
 </section>
 
 <section class="section" id="projects">
   <div class="section-heading">
     <h2>{t.featuredProjects}</h2>
+    <p>{t.projectIntro}</p>
   </div>
   <div class="project-grid">
     {
       projects.map((project) => (
         <article class="project-card">
-          <p class="project-status">{project.status}</p>
+          <div class="project-visual" aria-hidden="true">
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+          <p class="project-status">{t.status[project.status]}</p>
           <h3>{project.title[language]}</h3>
           <p>{project.summary[language]}</p>
+          <p class="project-context">{project.context[language]}</p>
           <ul class="tag-list">
             {project.tags.map((tag) => <li>{tag}</li>)}
           </ul>
@@ -75,12 +131,75 @@ const hero = profile.hero[language];
   <div class="section-heading">
     <h2>{t.experience}</h2>
   </div>
-  <p>{t.experienceTodo}</p>
+  <div class="timeline">
+    {
+      experiences.map((item) => (
+        <article class="timeline-item">
+          <p class="timeline-period">{item.period[language]}</p>
+          <div>
+            <p class="eyebrow">{item.kind[language]}</p>
+            <h3>{item.role[language]}</h3>
+            <p class="meta">
+              {item.organization} · {item.location[language]}
+            </p>
+            <ul>
+              {item.highlights[language].map((highlight) => <li>{highlight}</li>)}
+            </ul>
+          </div>
+        </article>
+      ))
+    }
+  </div>
+</section>
+
+<section class="section">
+  <div class="section-heading">
+    <h2>{t.extracurricular}</h2>
+  </div>
+  <div class="timeline compact">
+    {
+      extracurriculars.map((item) => (
+        <article class="timeline-item">
+          <p class="timeline-period">{item.period[language]}</p>
+          <div>
+            <p class="eyebrow">{item.kind[language]}</p>
+            <h3>{item.role[language]}</h3>
+            <p class="meta">
+              {item.organization} · {item.location[language]}
+            </p>
+            <ul>
+              {item.highlights[language].map((highlight) => <li>{highlight}</li>)}
+            </ul>
+          </div>
+        </article>
+      ))
+    }
+  </div>
+</section>
+
+<section class="section" id="skills">
+  <div class="section-heading">
+    <h2>{t.skills}</h2>
+    <p>{t.skillsIntro}</p>
+  </div>
+  <div class="skill-grid">
+    {
+      skillGroups.map((group) => (
+        <article class="skill-card">
+          <h3>{group.title[language]}</h3>
+          <ul class="tag-list">
+            {group.items.map((item) => <li>{item}</li>)}
+          </ul>
+        </article>
+      ))
+    }
+  </div>
 </section>
 
 <section class="section" id="publications">
   <div class="section-heading">
     <h2>{t.publications}</h2>
+    <p>{t.publicationIntro}</p>
   </div>
   <div class="publication-list">
     {
@@ -94,15 +213,6 @@ const hero = profile.hero[language];
       ))
     }
   </div>
-</section>
-
-<section class="section" id="skills">
-  <div class="section-heading">
-    <h2>{t.skills}</h2>
-  </div>
-  <ul class="tag-list">
-    {profile.focusAreas.map((area) => <li>{area}</li>)}
-  </ul>
 </section>
 
 <section class="section" id="education">
