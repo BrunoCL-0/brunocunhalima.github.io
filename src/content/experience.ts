@@ -30,14 +30,14 @@ export const experiences: Experience[] = [
     },
     highlights: {
       pt: [
-        "Desenvolvimento técnico e integração de sistemas robóticos em uma plataforma AGV com manipulador.",
-        "Trabalho com ROS 2, C++, Python, Linux, navegação autônoma, SLAM, motion planning e MoveIt 2.",
-        "Apoio a concepção, experimentação e validação de sistemas de manipulação móvel."
+        "Desenvolvimento e integração de software robótico para uma plataforma AGV equipada com manipulador.",
+        "Implementação de fluxos com ROS 2, C++, Python, Linux, navegação autônoma, SLAM, motion planning e MoveIt 2.",
+        "Contribuição na concepção, experimentação e validação de soluções de manipulação móvel para aplicações reais."
       ],
       en: [
-        "Technical development and integration of robotic systems on an AGV platform with a robotic manipulator.",
-        "Work with ROS 2, C++, Python, Linux, autonomous navigation, SLAM, motion planning, and MoveIt 2.",
-        "Support for concept development, experimentation, and validation of mobile manipulation systems."
+        "Developed and integrated robotic software for an AGV platform equipped with a robotic manipulator.",
+        "Implemented workflows with ROS 2, C++, Python, Linux, autonomous navigation, SLAM, motion planning, and MoveIt 2.",
+        "Contributed to the design, experimentation, and validation of mobile manipulation solutions for real-world applications."
       ]
     }
   },
@@ -61,14 +61,14 @@ export const experiences: Experience[] = [
     },
     highlights: {
       pt: [
-        "Modernização de uma plataforma TurtleBot2i legada por meio da migração de ROS 1 para ROS 2 Humble.",
-        "Integração da base Kobuki, LiDAR Velodyne VLP-16, Orbbec Astra e Intel RealSense D435.",
-        "Configuração de drivers, tópicos, parâmetros, TF, URDF/Xacro, launch files, RViz, Gazebo, SLAM e Nav2."
+        "Modernização de uma plataforma TurtleBot2i legada com migração do stack de ROS 1 para ROS 2 Humble.",
+        "Integração da base Kobuki, LiDAR Velodyne VLP-16, Orbbec Astra e Intel RealSense D435 para experimentos de navegação e percepção.",
+        "Configuração de drivers, tópicos, parâmetros, TF, URDF/Xacro, launch files, RViz, Gazebo, SLAM e Nav2, resultando em publicação técnica no SIINTEC."
       ],
       en: [
-        "Modernization of a legacy TurtleBot2i platform through migration from ROS 1 to ROS 2 Humble.",
-        "Integration of the Kobuki base, Velodyne VLP-16 LiDAR, Orbbec Astra, and Intel RealSense D435.",
-        "Configuration of drivers, topics, parameters, TF, URDF/Xacro, launch files, RViz, Gazebo, SLAM, and Nav2."
+        "Modernized a legacy TurtleBot2i platform by migrating its software stack from ROS 1 to ROS 2 Humble.",
+        "Integrated the Kobuki base, Velodyne VLP-16 LiDAR, Orbbec Astra, and Intel RealSense D435 for navigation and perception experiments.",
+        "Configured drivers, topics, parameters, TF, URDF/Xacro, launch files, RViz, Gazebo, SLAM, and Nav2, leading to a technical publication at SIINTEC."
       ]
     }
   },
@@ -92,12 +92,12 @@ export const experiences: Experience[] = [
     },
     highlights: {
       pt: [
-        "Apoio em monitorias, resolução de problemas e dúvidas de estudantes.",
-        "Atuação em tópicos de fenômenos ondulatórios, eletromagnetismo e aplicações matemáticas em engenharia."
+        "Condução de monitorias e apoio a estudantes na resolução de problemas de Física III.",
+        "Reforço de conceitos de fenômenos ondulatórios, eletromagnetismo e aplicações matemáticas em engenharia."
       ],
       en: [
-        "Support in tutorial sessions, problem solving, and student questions.",
-        "Work with wave phenomena, electromagnetism, and mathematical applications in engineering."
+        "Led tutorial sessions and supported students in Physics III problem-solving activities.",
+        "Reinforced concepts in wave phenomena, electromagnetism, and mathematical applications in engineering."
       ]
     }
   },
@@ -121,12 +121,12 @@ export const experiences: Experience[] = [
     },
     highlights: {
       pt: [
-        "Apoio a projetos elétricos de baixa tensão em conformidade com a ABNT/NBR 5410.",
-        "Levantamento de materiais, estimativas de custo, relatórios técnicos e suporte ao planejamento de obras."
+        "Apoio ao desenvolvimento de projetos elétricos de baixa tensão em conformidade com a ABNT/NBR 5410.",
+        "Elaboração de levantamentos de materiais, estimativas de custo, relatórios técnicos e documentação de acompanhamento de obras."
       ],
       en: [
-        "Support for low-voltage electrical projects following ABNT/NBR 5410.",
-        "Material surveys, cost estimates, technical reports, and support for construction planning."
+        "Supported the development of low-voltage electrical projects in compliance with ABNT/NBR 5410.",
+        "Prepared material surveys, cost estimates, technical reports, and construction monitoring documentation."
       ]
     }
   }
@@ -153,12 +153,12 @@ export const extracurriculars: Experience[] = [
     },
     highlights: {
       pt: [
-        "Pesquisa em localização, mapeamento e percepção para sistemas robóticos móveis com ROS 2.",
-        "Avaliação de SLAM RGB-D e LiDAR com Cartographer e SLAM Toolbox, YOLO, Gazebo e Nav2."
+        "Pesquisa experimental em localização, mapeamento e percepção para sistemas robóticos móveis com ROS 2.",
+        "Comparação de configurações de SLAM RGB-D e LiDAR com Cartographer e SLAM Toolbox, além de experimentos de percepção com YOLO, Gazebo e Nav2."
       ],
       en: [
-        "Research in localization, mapping, and perception for mobile robotic systems with ROS 2.",
-        "Evaluation of RGB-D and LiDAR SLAM with Cartographer and SLAM Toolbox, YOLO, Gazebo, and Nav2."
+        "Conducted experimental research in localization, mapping, and perception for mobile robotic systems with ROS 2.",
+        "Compared RGB-D and LiDAR SLAM configurations with Cartographer and SLAM Toolbox, alongside perception experiments using YOLO, Gazebo, and Nav2."
       ]
     }
   },
@@ -182,12 +182,12 @@ export const extracurriculars: Experience[] = [
     },
     highlights: {
       pt: [
-        "Integração elétrica, PCB design em KiCad e apoio ao circuito de pré-carga do powertrain a hidrogênio.",
-        "Participação no projeto que alcançou 3º lugar geral no SAE BRASIL H2 Challenge 2025."
+        "Desenvolvimento de integração elétrica e layouts de PCB em KiCad para o powertrain a hidrogênio.",
+        "Apoio ao circuito de pré-carga para controle de corrente de pico e proteção dos capacitores do motor em projeto premiado com 3º lugar geral no SAE BRASIL H2 Challenge 2025."
       ],
       en: [
-        "Electrical integration, PCB design in KiCad, and support for the hydrogen powertrain pre-charge circuit.",
-        "Contribution to the project that achieved 3rd place overall at the 2025 SAE BRASIL H2 Challenge."
+        "Developed electrical integration and PCB layouts in KiCad for the hydrogen powertrain.",
+        "Supported the pre-charge circuit for peak current control and motor capacitor protection in a project awarded 3rd place overall at the 2025 SAE BRASIL H2 Challenge."
       ]
     }
   },
@@ -211,12 +211,12 @@ export const extracurriculars: Experience[] = [
     },
     highlights: {
       pt: [
-        "Apoio técnico e organizacional em projetos de tecnologia e inovação.",
-        "Projeto pedagógico envolvendo carregador de bateria eficiente com KiCad e Proteus."
+        "Atuação técnica e organizacional em projetos estudantis de tecnologia, inovação e educação em engenharia.",
+        "Coordenação de projeto pedagógico para design e simulação de carregador de bateria eficiente com KiCad e Proteus."
       ],
       en: [
-        "Technical and organizational support in technology and innovation projects.",
-        "Educational engineering project involving an efficient battery charger using KiCad and Proteus."
+        "Provided technical and organizational leadership in student projects focused on technology, innovation, and engineering education.",
+        "Coordinated an educational engineering project for the design and simulation of an efficient battery charger using KiCad and Proteus."
       ]
     }
   }

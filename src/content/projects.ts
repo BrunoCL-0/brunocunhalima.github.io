@@ -63,8 +63,8 @@ const projectItems: Project[] = [
     priority: 2,
     image: "agv-manipulation-concept.png",
     videoLabel: {
-      pt: "Mídia pública pendente de autorização",
-      en: "Public media pending authorization"
+      pt: "Conceito de manipulação móvel com AGV",
+      en: "Mobile manipulation concept with AGV"
     },
     imageAlt: {
       pt: "Composição conceitual de uma plataforma terrestre, um manipulador colaborativo e um manipulador soft",
@@ -75,23 +75,23 @@ const projectItems: Project[] = [
       en: "AGV with robotic manipulator"
     },
     summary: {
-      pt: "Projeto de P&D em manipulação móvel. Conteúdo público ainda depende de autorização e revisão de confidencialidade.",
-      en: "R&D project in mobile manipulation. Public content still depends on authorization and confidentiality review."
+      pt: "Projeto de P&D em manipulação móvel envolvendo integração de software robótico, navegação autônoma, planejamento de movimento e controle com ROS 2.",
+      en: "Mobile manipulation R&D project involving robotic software integration, autonomous navigation, motion planning, and control with ROS 2."
     },
     context: {
-      pt: "Experiência atual em desenvolvimento e integração de sistemas robóticos para aplicações reais usando uma plataforma AGV equipada com manipulador.",
-      en: "Current experience in robotic system development and integration for real-world applications using an AGV platform equipped with a manipulator."
+      pt: "Experiência em desenvolvimento e integração de sistemas robóticos para aplicações reais usando uma plataforma AGV equipada com manipulador.",
+      en: "Experience in robotic system development and integration for real-world applications using an AGV platform equipped with a manipulator."
     },
     contribution: {
       pt: [
-        "Apoio ao desenvolvimento em C++ e ROS 2.",
-        "Experimentação com navegação, SLAM, motion planning e MoveIt 2.",
-        "Conteúdo técnico detalhado pendente de autorização."
+        "Desenvolvimento e integração de componentes em C++ e ROS 2.",
+        "Experimentação com navegação autônoma, SLAM, motion planning e MoveIt 2.",
+        "Validação de fluxos de manipulação móvel em ambiente de P&D aplicado."
       ],
       en: [
-        "Support for development in C++ and ROS 2.",
-        "Experimentation with navigation, SLAM, motion planning, and MoveIt 2.",
-        "Detailed technical content pending authorization."
+        "Development and integration of components in C++ and ROS 2.",
+        "Experimentation with autonomous navigation, SLAM, motion planning, and MoveIt 2.",
+        "Validation of mobile manipulation workflows in an applied R&D environment."
       ]
     },
     tags: ["ROS 2", "C++", "MoveIt 2", "Navigation"]
