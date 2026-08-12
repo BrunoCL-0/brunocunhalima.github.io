@@ -5,6 +5,10 @@ export type Project = {
   priority: number;
   image?: string;
   video?: string;
+  extraVideos?: {
+    video: string;
+    videoLabel: Record<Language, string>;
+  }[];
   videoLabel: Record<Language, string>;
   imageAlt: Record<Language, string>;
   title: Record<Language, string>;
@@ -19,10 +23,10 @@ const projectItems: Project[] = [
     slug: "turtlebot2i-ros2-retrofit",
     priority: 1,
     image: "turtlebot2i-retrofit.jpeg",
-    video: "nav2-navigation-demo.mp4",
+    video: "nav2-physical-demo.mp4",
     videoLabel: {
-      pt: "Teste de navegação autônoma com Nav2 em ambiente simulado",
-      en: "Autonomous navigation test with Nav2 in a simulated environment"
+      pt: "Teste de navegação autônoma com Nav2 no robô físico",
+      en: "Autonomous navigation test with Nav2 on the physical robot"
     },
     imageAlt: {
       pt: "TurtleBot2i com sensores RGB-D e LiDAR usado no projeto de retrofit para ROS 2",
@@ -96,11 +100,20 @@ const projectItems: Project[] = [
     slug: "rgbd-lidar-slam-analysis",
     priority: 3,
     image: "gazebo-turtlebot-sensors.png",
-    video: "yolo-detection-demo.webm",
+    video: "nav2-navigation-demo.mp4",
     videoLabel: {
-      pt: "Teste de detecção de objetos e pessoas com YOLO em simulação",
-      en: "YOLO object and person detection test in simulation"
+      pt: "Teste de navegação autônoma com Nav2 em ambiente simulado",
+      en: "Autonomous navigation test with Nav2 in a simulated environment"
     },
+    extraVideos: [
+      {
+        video: "yolo-detection-demo.webm",
+        videoLabel: {
+          pt: "Teste de detecção de objetos e pessoas com YOLO em simulação",
+          en: "YOLO object and person detection test in simulation"
+        }
+      }
+    ],
     imageAlt: {
       pt: "TurtleBot2i em simulação no Gazebo com sensores RGB-D e LiDAR",
       en: "TurtleBot2i in Gazebo simulation with RGB-D and LiDAR sensors"

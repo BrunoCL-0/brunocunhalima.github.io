@@ -12,6 +12,7 @@ import siintecTurtlePhoto from "../assets/siintec-turtle-presentation.png";
 import turtlebotPhoto from "../assets/turtlebot2i-retrofit.jpeg";
 import gazeboTurtlebotPhoto from "../assets/gazebo-turtlebot-sensors.png";
 import agvConceptPhoto from "../assets/agv-manipulation-concept.png";
+import nav2PhysicalVideo from "../assets/nav2-physical-demo.mp4";
 import nav2Video from "../assets/nav2-navigation-demo.mp4";
 import yoloVideo from "../assets/yolo-detection-demo.webm";
 import type { Language } from "@i18n/config";
@@ -113,6 +114,7 @@ const projectImages = {
   "agv-manipulation-concept.png": agvConceptPhoto.src
 } as const;
 const projectVideos = {
+  "nav2-physical-demo.mp4": nav2PhysicalVideo,
   "nav2-navigation-demo.mp4": nav2Video,
   "yolo-detection-demo.webm": yoloVideo
 } as const;
@@ -157,7 +159,12 @@ const projectVideos = {
                 src: projectVideos[project.video as keyof typeof projectVideos],
                 label: project.videoLabel[language]
               }
-            : undefined
+            : undefined,
+          ...(project.extraVideos?.map((item) => ({
+            type: "video" as const,
+            src: projectVideos[item.video as keyof typeof projectVideos],
+            label: item.videoLabel[language]
+          })) ?? [])
         ];
         const media = mediaCandidates.filter(isProjectMediaItem) as ProjectMediaItem[];
 
