@@ -74,8 +74,8 @@ export const experiences: Experience[] = [
   },
   {
     period: {
-      pt: "Mar 2026 - atual",
-      en: "Mar 2026 - present"
+      pt: "12/03/2026 - atual; 10/03/2025 - 20/12/2025",
+      en: "12/03/2026 - Current; 10/03/2025 - 20/12/2025"
     },
     role: {
       pt: "Monitor de Física III",
