@@ -361,7 +361,13 @@ const projectVideos = {
   <div class="section-heading">
     <h2>{t.education}</h2>
   </div>
-  <p>{profile.education[language]}</p>
+  <article class="education-item">
+    <p>{profile.education.period}</p>
+    <div>
+      <h3>{profile.education.degree[language]}</h3>
+      <p>{profile.education.institution}</p>
+    </div>
+  </article>
 </section>
 
 <section class="section" id="contact">

@@ -1,13 +1,15 @@
 import type { Language } from "@i18n/config";
 
-type LocalizedText = Record<Language, string>;
-
 export const profile = {
   name: "Bruno Cunha Lima",
   education: {
-    pt: "Bacharelado em Engenharia Elétrica - SENAI CIMATEC",
-    en: "B.Sc. in Electrical Engineering - SENAI CIMATEC"
-  } satisfies LocalizedText,
+    period: "2022 - 2026",
+    degree: {
+      pt: "Bacharelado em Engenharia Elétrica",
+      en: "BSc in Electrical Engineering"
+    },
+    institution: "University SENAI CIMATEC"
+  },
   focusAreas: [
     {
       pt: "Robótica",

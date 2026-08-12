@@ -477,6 +477,33 @@ h3 {
   background: transparent;
 }
 
+.education-item {
+  border-top: 1px solid var(--line);
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: minmax(9rem, 0.26fr) 1fr;
+  padding-top: 1.25rem;
+}
+
+.education-item > p {
+  color: var(--muted);
+  font-size: 1.05rem;
+  font-weight: 650;
+  margin: 0;
+}
+
+.education-item h3 {
+  color: var(--accent-strong);
+  font-size: clamp(1.4rem, 3vw, 2rem);
+  margin-bottom: 0.1rem;
+}
+
+.education-item div p {
+  color: var(--muted);
+  font-size: 1.1rem;
+  margin: 0;
+}
+
 .publication-list article {
   display: grid;
   align-content: start;
@@ -642,6 +669,10 @@ h3 {
   }
 
   .timeline-item {
+    grid-template-columns: 1fr;
+  }
+
+  .education-item {
     grid-template-columns: 1fr;
   }
 
