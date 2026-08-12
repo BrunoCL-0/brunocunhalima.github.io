@@ -12,7 +12,6 @@ export type Project = {
   context: Record<Language, string>;
   contribution: Record<Language, string[]>;
   tags: string[];
-  status: "featured" | "draft";
 };
 
 const projectItems: Project[] = [
@@ -53,8 +52,7 @@ const projectItems: Project[] = [
         "Validation of teleoperation, simulation, SLAM, and navigation with Nav2."
       ]
     },
-    tags: ["ROS 2", "SLAM", "Nav2", "Gazebo", "RViz"],
-    status: "featured"
+    tags: ["ROS 2", "SLAM", "Nav2", "Gazebo", "RViz"]
   },
   {
     slug: "agv-mobile-manipulation",
@@ -92,13 +90,12 @@ const projectItems: Project[] = [
         "Detailed technical content pending authorization."
       ]
     },
-    tags: ["ROS 2", "C++", "MoveIt 2", "Navigation"],
-    status: "draft"
+    tags: ["ROS 2", "C++", "MoveIt 2", "Navigation"]
   },
   {
     slug: "rgbd-lidar-slam-analysis",
     priority: 3,
-    video: "yolo-detection-demo.mp4",
+    video: "yolo-detection-demo.webm",
     videoLabel: {
       pt: "Teste de detecção de objetos e pessoas com YOLO em simulação",
       en: "YOLO object and person detection test in simulation"
@@ -133,8 +130,7 @@ const projectItems: Project[] = [
         "YOLO detection tests for objects and people in a simulated scenario."
       ]
     },
-    tags: ["ROS 2", "SLAM Toolbox", "Cartographer", "RGB-D", "LiDAR"],
-    status: "featured"
+    tags: ["ROS 2", "SLAM Toolbox", "Cartographer", "RGB-D", "LiDAR"]
   }
 ];
 

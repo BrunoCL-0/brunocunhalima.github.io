@@ -10,7 +10,7 @@ import indexPhoto from "../assets/bruno-robotics.jpeg";
 import turtlebotPhoto from "../assets/turtlebot2i-retrofit.jpeg";
 import agvConceptPhoto from "../assets/agv-manipulation-concept.png";
 import nav2Video from "../assets/nav2-navigation-demo.mp4";
-import yoloVideo from "../assets/yolo-detection-demo.mp4";
+import yoloVideo from "../assets/yolo-detection-demo.webm";
 import type { Language } from "@i18n/config";
 import { withBase } from "@utils/paths";
 
@@ -19,6 +19,21 @@ type Props = {
 };
 
 const { language } = Astro.props;
+type ProjectMediaItem =
+  | {
+      type: "image";
+      src: string;
+      alt: string;
+    }
+  | {
+      type: "video";
+      src: string;
+      label: string;
+    };
+
+function isProjectMediaItem(item: ProjectMediaItem | undefined): item is ProjectMediaItem {
+  return Boolean(item);
+}
 
 const copy = {
   pt: {
@@ -47,11 +62,7 @@ const copy = {
       "Canais públicos confirmados para contato profissional, projetos e pesquisa.",
     projectCta: "Ver estudo de caso",
     caseStudy: "Estudo de caso",
-    role: "Contribuição",
-    status: {
-      featured: "Destaque",
-      draft: "Em revisão"
-    }
+    role: "Contribuição"
   },
   en: {
     seeProjects: "See projects",
@@ -79,11 +90,7 @@ const copy = {
       "Confirmed public channels for professional contact, projects, and research.",
     projectCta: "View case study",
     caseStudy: "Case study",
-    role: "Contribution",
-    status: {
-      featured: "Featured",
-      draft: "Under review"
-    }
+    role: "Contribution"
   }
 } as const;
 
@@ -95,7 +102,7 @@ const projectImages = {
 } as const;
 const projectVideos = {
   "nav2-navigation-demo.mp4": nav2Video,
-  "yolo-detection-demo.mp4": yoloVideo
+  "yolo-detection-demo.webm": yoloVideo
 } as const;
 ---
 
@@ -123,50 +130,89 @@ const projectVideos = {
   </div>
   <div class="project-grid">
     {
-      projects.map((project) => (
-        <article class="project-card">
-          {
-            project.image ? (
-              <img
-                class="project-image"
-                src={projectImages[project.image as keyof typeof projectImages]}
-                alt={project.imageAlt[language]}
-              />
-            ) : (
-              <div class="project-visual" aria-hidden="true">
-                <span />
-                <span />
-                <span />
-              </div>
-            )
-          }
-          <p class="project-status">{t.status[project.status]}</p>
-          <h3>{project.title[language]}</h3>
-          <p>{project.summary[language]}</p>
-          <p class="project-context">{project.context[language]}</p>
-          {
-            project.video && (
-              <figure class="project-video-frame">
-                <video
-                  src={projectVideos[project.video as keyof typeof projectVideos]}
-                  controls
-                  muted
-                  playsinline
-                  preload="metadata"
-                />
-                <figcaption>{project.videoLabel[language]}</figcaption>
-              </figure>
-            )
-          }
-          <ul class="tag-list">
-            {project.tags.map((tag) => <li>{tag}</li>)}
-          </ul>
-          <a href={withBase(`${language}/projects/${project.slug}/`)}>{t.projectCta}</a>
-        </article>
-      ))
+      projects.map((project) => {
+        const mediaCandidates = [
+          project.image
+            ? {
+                type: "image" as const,
+                src: projectImages[project.image as keyof typeof projectImages],
+                alt: project.imageAlt[language]
+              }
+            : undefined,
+          project.video
+            ? {
+                type: "video" as const,
+                src: projectVideos[project.video as keyof typeof projectVideos],
+                label: project.videoLabel[language]
+              }
+            : undefined
+        ];
+        const media = mediaCandidates.filter(isProjectMediaItem) as ProjectMediaItem[];
+
+        return (
+          <article class="project-card">
+            <div class="project-media" data-project-media>
+              {media.length > 0 ? (
+                media.map((item, index) => (
+                  <figure class="media-slide" data-media-slide hidden={index !== 0}>
+                    {item.type === "image" ? (
+                      <img class="project-image" src={item.src} alt={item.alt} />
+                    ) : (
+                      <>
+                        <video src={item.src} controls muted playsinline preload="metadata" />
+                        <figcaption>{item.label}</figcaption>
+                      </>
+                    )}
+                  </figure>
+                ))
+              ) : (
+                <div class="project-visual" aria-hidden="true">
+                  <span />
+                  <span />
+                  <span />
+                </div>
+              )}
+              {media.length > 1 && (
+                <div class="media-controls" aria-label="Project media controls">
+                  <button type="button" data-media-prev aria-label="Previous media">‹</button>
+                  <button type="button" data-media-next aria-label="Next media">›</button>
+                </div>
+              )}
+            </div>
+            <h3>{project.title[language]}</h3>
+            <p>{project.summary[language]}</p>
+            <p class="project-context">{project.context[language]}</p>
+            <ul class="tag-list">
+              {project.tags.map((tag) => <li>{tag}</li>)}
+            </ul>
+            <a href={withBase(`${language}/projects/${project.slug}/`)}>{t.projectCta}</a>
+          </article>
+        );
+      })
     }
   </div>
 </section>
+
+<script>
+  document.querySelectorAll("[data-project-media]").forEach((gallery) => {
+    const slides = Array.from(gallery.querySelectorAll("[data-media-slide]"));
+    const previous = gallery.querySelector("[data-media-prev]");
+    const next = gallery.querySelector("[data-media-next]");
+    let current = 0;
+
+    function showSlide(index: number) {
+      current = (index + slides.length) % slides.length;
+      slides.forEach((slide, slideIndex) => {
+        const isActive = slideIndex === current;
+        slide.toggleAttribute("hidden", !isActive);
+        if (!isActive) slide.querySelector("video")?.pause();
+      });
+    }
+
+    previous?.addEventListener("click", () => showSlide(current - 1));
+    next?.addEventListener("click", () => showSlide(current + 1));
+  });
+</script>
 
 <section class="section" id="media">
   <div class="section-heading">

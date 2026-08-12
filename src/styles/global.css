@@ -181,7 +181,6 @@ button:focus-visible {
 }
 
 .eyebrow,
-.project-status,
 .timeline-period {
   color: var(--accent-strong);
   font-size: 0.82rem;
@@ -335,6 +334,18 @@ h3 {
   gap: 0.7rem;
 }
 
+.project-media {
+  position: relative;
+}
+
+.media-slide {
+  margin: 0;
+}
+
+.media-slide[hidden] {
+  display: none;
+}
+
 .project-visual {
   align-items: end;
   background: var(--surface-soft);
@@ -358,23 +369,50 @@ h3 {
   width: 100%;
 }
 
-.project-video-frame {
+.media-slide video {
+  aspect-ratio: 16 / 11;
+  background: var(--surface-soft);
   border: 1px solid var(--line);
   border-radius: 6px;
-  margin: 0;
-  overflow: hidden;
-}
-
-.project-video-frame video {
-  background: var(--surface-soft);
   display: block;
+  object-fit: contain;
   width: 100%;
 }
 
-.project-video-frame figcaption {
+.media-slide figcaption {
   color: var(--muted);
   font-size: 0.9rem;
   padding: 0.65rem 0.75rem;
+}
+
+.media-controls {
+  display: flex;
+  gap: 0.35rem;
+  position: absolute;
+  right: 0.55rem;
+  top: 0.55rem;
+  z-index: 1;
+}
+
+.media-controls button {
+  align-items: center;
+  background: rgba(255, 255, 255, 0.9);
+  border: 1px solid var(--line);
+  border-radius: 50%;
+  color: var(--text);
+  cursor: pointer;
+  display: inline-flex;
+  font-size: 1.15rem;
+  height: 2rem;
+  justify-content: center;
+  line-height: 1;
+  padding: 0;
+  width: 2rem;
+}
+
+.media-controls button:hover {
+  border-color: var(--accent);
+  color: var(--accent-strong);
 }
 
 .project-visual span {
