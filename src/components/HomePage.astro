@@ -51,7 +51,7 @@ const copy = {
     mediaIntro:
       "Registros pontuais de apresentações, demonstrações técnicas e contato com projetos em eventos.",
     indexCaption:
-      "Participação no evento INDEX com demonstração de robótica e manipulação móvel no SENAI CIMATEC.",
+      "Participação no INDEX Bahia como um dos representantes do SENAI, com demonstração de robótica e manipulação móvel.",
     siintecTurtleCaption:
       "Apresentação no SIINTEC do trabalho sobre retrofit do TurtleBot2i para ROS 2.",
     siintecIotCaption:
@@ -68,6 +68,7 @@ const copy = {
     contact: "Contato",
     contactIntro:
       "Canais públicos confirmados para contato profissional, projetos e pesquisa.",
+    focusAreasLabel: "Áreas de foco",
     projectCta: "Ver estudo de caso",
     caseStudy: "Estudo de caso",
     role: "Contribuição"
@@ -83,7 +84,7 @@ const copy = {
     mediaIntro:
       "Selected records from presentations, technical demonstrations, and project showcases.",
     indexCaption:
-      "Participation at the INDEX event with a robotics and mobile manipulation demonstration at SENAI CIMATEC.",
+      "Participation at INDEX Bahia as one of the SENAI representatives, with a robotics and mobile manipulation demonstration.",
     siintecTurtleCaption:
       "SIINTEC presentation of the work on the TurtleBot2i retrofit for ROS 2.",
     siintecIotCaption:
@@ -100,6 +101,7 @@ const copy = {
     contact: "Contact",
     contactIntro:
       "Confirmed public channels for professional contact, projects, and research.",
+    focusAreasLabel: "Focus areas",
     projectCta: "View case study",
     caseStudy: "Case study",
     role: "Contribution"
@@ -128,8 +130,8 @@ const projectVideos = {
     <div class="hero-actions">
       <a class="button primary" href="#projects">{t.seeProjects}</a>
     </div>
-    <ul class="focus-list hero-focus" aria-label="Focus areas">
-      {profile.focusAreas.map((area) => <li>{area}</li>)}
+    <ul class="focus-list hero-focus" aria-label={t.focusAreasLabel}>
+      {profile.focusAreas.map((area) => <li>{area[language]}</li>)}
     </ul>
   </div>
   <aside class="hero-photo-card" aria-label="Bruno Cunha Lima em ambiente de robótica">
@@ -328,7 +330,7 @@ const projectVideos = {
         <article class="skill-card">
           <h3>{group.title[language]}</h3>
           <ul class="tag-list">
-            {group.items.map((item) => <li>{item}</li>)}
+            {group.items.map((item) => <li>{typeof item === "string" ? item : item[language]}</li>)}
           </ul>
         </article>
       ))

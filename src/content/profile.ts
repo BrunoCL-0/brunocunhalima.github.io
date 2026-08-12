@@ -9,13 +9,34 @@ export const profile = {
     en: "B.Sc. in Electrical Engineering - SENAI CIMATEC"
   } satisfies LocalizedText,
   focusAreas: [
-    "Robotics",
-    "ROS 2",
-    "Autonomous Mobile Robots",
-    "SLAM",
-    "Navigation",
-    "Perception",
-    "Electrical Engineering"
+    {
+      pt: "Robótica",
+      en: "Robotics"
+    },
+    {
+      pt: "ROS 2",
+      en: "ROS 2"
+    },
+    {
+      pt: "Robôs móveis autônomos",
+      en: "Autonomous Mobile Robots"
+    },
+    {
+      pt: "SLAM",
+      en: "SLAM"
+    },
+    {
+      pt: "Navegação",
+      en: "Navigation"
+    },
+    {
+      pt: "Percepção",
+      en: "Perception"
+    },
+    {
+      pt: "Engenharia Elétrica",
+      en: "Electrical Engineering"
+    }
   ],
   hero: {
     pt: {

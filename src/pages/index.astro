@@ -1,5 +1,4 @@
 ---
-import { languages } from "@i18n/config";
 import { withBase } from "@utils/paths";
 import ContactLinks from "@components/ContactLinks.astro";
 import brunoPhoto from "../assets/bruno-portrait.png";
@@ -26,18 +25,25 @@ import "@styles/global.css";
           </p>
           <div class="hero-actions">
             <a class="button primary" href={withBase("en/#projects")} data-language="en">See projects</a>
-            <a class="button secondary" href={withBase("en/#media")} data-language="en">Event participation</a>
-            <a class="button secondary" href={withBase(languages.pt.path)} data-language="pt">Português</a>
+            <button class="button secondary" type="button" data-entry-contact-toggle aria-controls="entry-contact" aria-expanded="false">
+              Contact
+            </button>
           </div>
-          <ContactLinks compact />
+          <div id="entry-contact" hidden>
+            <ContactLinks compact />
+          </div>
         </div>
         <img src={brunoPhoto.src} alt="Portrait of Bruno Cunha Lima" />
       </section>
     </main>
     <script>
-      const preferredLanguage = localStorage.getItem("preferred-language");
-      const base = import.meta.env.BASE_URL;
-      if (preferredLanguage === "pt") window.location.replace(`${base}pt/`);
+      const contactToggle = document.querySelector("[data-entry-contact-toggle]");
+      const contactPanel = document.querySelector("#entry-contact");
+      contactToggle?.addEventListener("click", () => {
+        const isHidden = contactPanel?.hasAttribute("hidden");
+        contactPanel?.toggleAttribute("hidden", !isHidden);
+        contactToggle.setAttribute("aria-expanded", String(Boolean(isHidden)));
+      });
 
       document.querySelectorAll("[data-language]").forEach((link) => {
         link.addEventListener("click", () => {

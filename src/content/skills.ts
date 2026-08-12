@@ -2,7 +2,7 @@ import type { Language } from "@i18n/config";
 
 export type SkillGroup = {
   title: Record<Language, string>;
-  items: string[];
+  items: (string | Record<Language, string>)[];
 };
 
 export const skillGroups: SkillGroup[] = [
@@ -11,14 +11,14 @@ export const skillGroups: SkillGroup[] = [
       pt: "Robótica e ROS",
       en: "Robotics and ROS"
     },
-    items: ["ROS 2", "Gazebo", "RViz", "MoveIt 2", "Nav2", "SLAM", "TF", "URDF", "Xacro"]
+    items: ["ROS 2", "Gazebo", "MoveIt 2", "Nav2", "SLAM"]
   },
   {
     title: {
       pt: "Programação",
       en: "Programming"
     },
-    items: ["C++", "Python", "Linux", "Ubuntu", "Bash", "Git"]
+    items: ["C++", "Python", "Linux", "Ubuntu", "Git"]
   },
   {
     title: {
@@ -32,6 +32,16 @@ export const skillGroups: SkillGroup[] = [
       pt: "Engenharia elétrica",
       en: "Electrical engineering"
     },
-    items: ["ABNT/NBR 5410", "Projetos de baixa tensão", "PCB design", "KiCad", "Proteus", "Pré-carga"]
+    items: [
+      "ABNT/NBR 5410",
+      {
+        pt: "Projetos de baixa tensão",
+        en: "Low-voltage electrical design"
+      },
+      "PCB design",
+      "KiCad",
+      "Proteus",
+      "MATLAB"
+    ]
   }
 ];
