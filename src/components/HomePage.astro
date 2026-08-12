@@ -7,6 +7,7 @@ import { skillGroups } from "@content/skills";
 import brunoPhoto from "../assets/bruno-portrait.png";
 import indexPhoto from "../assets/bruno-robotics.jpeg";
 import turtlebotPhoto from "../assets/turtlebot2i-retrofit.jpeg";
+import agvConceptPhoto from "../assets/agv-manipulation-concept.png";
 import type { Language } from "@i18n/config";
 import { withBase } from "@utils/paths";
 
@@ -18,20 +19,15 @@ const { language } = Astro.props;
 
 const copy = {
   pt: {
-    enterPortfolio: "Ver portfólio",
     seeProjects: "Ver projetos",
-    seeExperience: "Ver experiência",
     seeResearch: "Ver publicações",
-    exploreTitle: "Escolha o que explorar",
-    exploreText:
-      "Se quiser ir direto ao ponto, comece pelos projetos. Eles contam melhor como engenharia elétrica, software e robótica se conectam no meu trabalho.",
     current: "Atual",
     featuredProjects: "Projetos em destaque",
     projectIntro:
       "Estudos de caso pensados para mostrar contexto, decisões técnicas e aprendizado, não apenas uma lista de tecnologias.",
-    media: "Registros",
+    media: "Participações em eventos",
     mediaIntro:
-      "Algumas imagens ajudam a contextualizar projetos, apresentações e demonstrações técnicas.",
+      "Registros pontuais de apresentações, demonstrações técnicas e contato com projetos em eventos.",
     indexCaption:
       "Participação no evento INDEX com demonstração de robótica e manipulação móvel no SENAI CIMATEC.",
     experience: "Experiência profissional",
@@ -55,20 +51,15 @@ const copy = {
     }
   },
   en: {
-    enterPortfolio: "View portfolio",
     seeProjects: "See projects",
-    seeExperience: "See experience",
     seeResearch: "See publications",
-    exploreTitle: "Choose what to explore",
-    exploreText:
-      "If you want the shortest path, start with the projects. They best show how electrical engineering, software, and robotics connect in my work.",
     current: "Current",
     featuredProjects: "Featured projects",
     projectIntro:
       "Case studies designed to show context, technical decisions, and learning instead of only listing technologies.",
-    media: "Media",
+    media: "Event participation",
     mediaIntro:
-      "A few images help contextualize projects, presentations, and technical demonstrations.",
+      "Selected records from presentations, technical demonstrations, and project showcases.",
     indexCaption:
       "Participation at the INDEX event with a robotics and mobile manipulation demonstration at SENAI CIMATEC.",
     experience: "Experience",
@@ -95,6 +86,10 @@ const copy = {
 
 const t = copy[language];
 const hero = profile.hero[language];
+const projectImages = {
+  "turtlebot2i-retrofit.jpeg": turtlebotPhoto.src,
+  "agv-manipulation-concept.png": agvConceptPhoto.src
+} as const;
 ---
 
 <section class="hero">
@@ -106,12 +101,12 @@ const hero = profile.hero[language];
     <div class="hero-actions">
       <a class="button primary" href="#projects">{t.seeProjects}</a>
     </div>
+    <ul class="focus-list hero-focus" aria-label="Focus areas">
+      {profile.focusAreas.map((area) => <li>{area}</li>)}
+    </ul>
   </div>
   <aside class="hero-photo-card" aria-label="Bruno Cunha Lima em ambiente de robótica">
     <img src={brunoPhoto.src} alt="Retrato de Bruno Cunha Lima" />
-    <ul class="focus-list" aria-label="Focus areas">
-      {profile.focusAreas.map((area) => <li>{area}</li>)}
-    </ul>
   </aside>
 </section>
 
@@ -128,7 +123,7 @@ const hero = profile.hero[language];
             project.image ? (
               <img
                 class="project-image"
-                src={project.image === "turtlebot2i-retrofit.jpeg" ? turtlebotPhoto.src : ""}
+                src={projectImages[project.image as keyof typeof projectImages]}
                 alt={project.imageAlt[language]}
               />
             ) : (

@@ -67,14 +67,15 @@ body::before {
 }
 
 .entry-card img {
-  aspect-ratio: 4 / 5;
   border: 1px solid var(--line);
-  border-radius: 8px;
+  border-radius: 50%;
   box-shadow: var(--shadow);
   display: block;
+  height: min(21rem, 72vw);
+  justify-self: center;
   object-fit: cover;
-  object-position: 50% 42%;
-  width: 100%;
+  object-position: 50% 30%;
+  width: min(21rem, 72vw);
 }
 
 a {
@@ -171,7 +172,7 @@ button:focus-visible {
   align-items: center;
   display: grid;
   gap: 2rem;
-  grid-template-columns: minmax(0, 1fr) minmax(19rem, 0.78fr);
+  grid-template-columns: minmax(0, 1fr) minmax(16rem, 0.54fr);
   min-height: calc(100vh - 4.2rem);
 }
 
@@ -262,22 +263,23 @@ h3 {
 }
 
 .hero-photo-card {
+  align-self: center;
   background: var(--surface);
   border: 1px solid var(--line);
-  border-radius: 8px;
+  border-radius: 50%;
   box-shadow: var(--shadow);
+  justify-self: center;
   overflow: hidden;
-  padding: 0.75rem;
+  padding: 0.45rem;
 }
 
 .hero-photo-card img {
-  aspect-ratio: 4 / 5;
   display: block;
-  height: auto;
+  height: min(18rem, 64vw);
   object-fit: cover;
-  object-position: 50% 42%;
-  width: 100%;
-  border-radius: 6px;
+  object-position: 50% 30%;
+  width: min(18rem, 64vw);
+  border-radius: 50%;
 }
 
 .focus-list,
@@ -298,6 +300,10 @@ h3 {
   padding: 0.35rem 0.7rem;
 }
 
+.hero-focus {
+  max-width: 760px;
+}
+
 .section {
   border-top: 1px solid var(--line);
 }
@@ -305,34 +311,6 @@ h3 {
 .section-heading {
   margin-bottom: 1.7rem;
   max-width: 760px;
-}
-
-.explore-section {
-  padding-bottom: 2.8rem;
-  padding-top: 2.8rem;
-}
-
-.explore-grid {
-  display: grid;
-  gap: 0.85rem;
-  grid-template-columns: repeat(4, 1fr);
-}
-
-.explore-grid a {
-  align-items: center;
-  background: var(--surface);
-  border: 1px solid var(--line);
-  border-radius: 8px;
-  color: var(--text);
-  display: flex;
-  min-height: 5.5rem;
-  padding: 1rem;
-  text-decoration: none;
-}
-
-.explore-grid a:hover {
-  border-color: var(--accent);
-  box-shadow: var(--shadow);
 }
 
 .project-grid,
@@ -447,14 +425,16 @@ h3 {
   border: 1px solid var(--line);
   border-radius: 8px;
   margin: 0;
+  max-width: 820px;
   overflow: hidden;
 }
 
 .media-feature img {
-  aspect-ratio: 16 / 10;
+  aspect-ratio: 16 / 9;
+  background: var(--surface-soft);
   display: block;
-  object-fit: cover;
-  object-position: 50% 46%;
+  object-fit: contain;
+  object-position: center;
   width: 100%;
 }
 
@@ -483,7 +463,6 @@ h3 {
   }
 
   .entry-card img {
-    aspect-ratio: 16 / 10;
     order: -1;
   }
 
@@ -496,13 +475,6 @@ h3 {
     order: -1;
   }
 
-  .hero-photo-card img {
-    aspect-ratio: 16 / 10;
-  }
-
-  .explore-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
 }
 
 @media (max-width: 760px) {
@@ -524,7 +496,4 @@ h3 {
     grid-template-columns: 1fr;
   }
 
-  .explore-grid {
-    grid-template-columns: 1fr;
-  }
 }
