@@ -387,27 +387,27 @@ h3 {
 
 .media-controls {
   display: flex;
-  gap: 0.35rem;
+  gap: 0.25rem;
   position: absolute;
-  right: 0.55rem;
-  top: 0.55rem;
+  bottom: 0.5rem;
+  right: 0.5rem;
   z-index: 1;
 }
 
 .media-controls button {
   align-items: center;
-  background: rgba(255, 255, 255, 0.9);
+  background: rgba(255, 255, 255, 0.92);
   border: 1px solid var(--line);
   border-radius: 50%;
   color: var(--text);
   cursor: pointer;
   display: inline-flex;
-  font-size: 1.15rem;
-  height: 2rem;
+  font-size: 0.95rem;
+  height: 1.55rem;
   justify-content: center;
   line-height: 1;
   padding: 0;
-  width: 2rem;
+  width: 1.55rem;
 }
 
 .media-controls button:hover {
@@ -545,9 +545,11 @@ h3 {
 }
 
 .media-gallery {
-  display: grid;
-  gap: 1rem;
-  grid-template-columns: repeat(auto-fit, minmax(min(100%, 20rem), 1fr));
+  position: relative;
+}
+
+.event-carousel {
+  max-width: 48rem;
 }
 
 .media-feature {

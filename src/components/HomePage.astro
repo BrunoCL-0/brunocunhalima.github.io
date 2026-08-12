@@ -156,7 +156,7 @@ const projectVideos = {
 
         return (
           <article class="project-card">
-            <div class="project-media" data-project-media>
+            <div class="project-media" data-carousel>
               {media.length > 0 ? (
                 media.map((item, index) => (
                   <figure class="media-slide" data-media-slide hidden={index !== 0}>
@@ -199,7 +199,7 @@ const projectVideos = {
 </section>
 
 <script>
-  document.querySelectorAll("[data-project-media]").forEach((gallery) => {
+  document.querySelectorAll("[data-carousel]").forEach((gallery) => {
     const slides = Array.from(gallery.querySelectorAll("[data-media-slide]"));
     const previous = gallery.querySelector("[data-media-prev]");
     const next = gallery.querySelector("[data-media-next]");
@@ -224,15 +224,19 @@ const projectVideos = {
     <h2>{t.media}</h2>
     <p>{t.mediaIntro}</p>
   </div>
-  <div class="media-gallery">
-    <figure class="media-feature">
+  <div class="media-gallery event-carousel" data-carousel>
+    <figure class="media-slide media-feature" data-media-slide>
       <img src={siintecIotPhoto.src} alt="Bruno Cunha Lima em apresentação de pôster no SIINTEC sobre IoT e automação" />
       <figcaption>{t.siintecIotCaption}</figcaption>
     </figure>
-    <figure class="media-feature">
+    <figure class="media-slide media-feature" data-media-slide hidden>
       <img src={indexPhoto.src} alt="Bruno Cunha Lima em demonstração de robótica no evento INDEX" />
       <figcaption>{t.indexCaption}</figcaption>
     </figure>
+    <div class="media-controls" aria-label="Event media controls">
+      <button type="button" data-media-prev aria-label="Previous event photo">‹</button>
+      <button type="button" data-media-next aria-label="Next event photo">›</button>
+    </div>
   </div>
 </section>
 
