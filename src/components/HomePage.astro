@@ -167,14 +167,20 @@ const projectVideos = {
               {media.length > 0 ? (
                 media.map((item, index) => (
                   <figure class="media-slide" data-media-slide hidden={index !== 0}>
-                    {item.type === "image" ? (
-                      <img class="project-image" src={item.src} alt={item.alt} />
-                    ) : (
-                      <>
+                    <div class="media-frame" data-media-frame>
+                      {item.type === "image" ? (
+                        <img class="project-image" src={item.src} alt={item.alt} />
+                      ) : (
                         <video src={item.src} controls muted playsinline preload="metadata" />
-                        <figcaption>{item.label}</figcaption>
-                      </>
-                    )}
+                      )}
+                      {media.length > 1 && index === 0 && (
+                        <div class="media-controls" data-media-controls aria-label="Project media controls">
+                          <button type="button" data-media-prev aria-label="Previous media">‹</button>
+                          <button type="button" data-media-next aria-label="Next media">›</button>
+                        </div>
+                      )}
+                    </div>
+                    {item.type === "video" && <figcaption>{item.label}</figcaption>}
                   </figure>
                 ))
               ) : (
@@ -182,12 +188,6 @@ const projectVideos = {
                   <span />
                   <span />
                   <span />
-                </div>
-              )}
-              {media.length > 1 && (
-                <div class="media-controls" aria-label="Project media controls">
-                  <button type="button" data-media-prev aria-label="Previous media">‹</button>
-                  <button type="button" data-media-next aria-label="Next media">›</button>
                 </div>
               )}
             </div>
@@ -208,8 +208,9 @@ const projectVideos = {
 <script>
   document.querySelectorAll("[data-carousel]").forEach((gallery) => {
     const slides = Array.from(gallery.querySelectorAll("[data-media-slide]"));
-    const previous = gallery.querySelector("[data-media-prev]");
-    const next = gallery.querySelector("[data-media-next]");
+    const controls = gallery.querySelector("[data-media-controls]");
+    const previousButtons = Array.from(gallery.querySelectorAll("[data-media-prev]"));
+    const nextButtons = Array.from(gallery.querySelectorAll("[data-media-next]"));
     let current = 0;
 
     function showSlide(index: number) {
@@ -219,10 +220,12 @@ const projectVideos = {
         slide.toggleAttribute("hidden", !isActive);
         if (!isActive) slide.querySelector("video")?.pause();
       });
+      const activeFrame = slides[current]?.querySelector("[data-media-frame]");
+      if (controls && activeFrame) activeFrame.append(controls);
     }
 
-    previous?.addEventListener("click", () => showSlide(current - 1));
-    next?.addEventListener("click", () => showSlide(current + 1));
+    previousButtons.forEach((button) => button.addEventListener("click", () => showSlide(current - 1)));
+    nextButtons.forEach((button) => button.addEventListener("click", () => showSlide(current + 1)));
   });
 </script>
 
@@ -233,21 +236,27 @@ const projectVideos = {
   </div>
   <div class="media-gallery event-carousel" data-carousel>
     <figure class="media-slide media-feature" data-media-slide>
-      <img src={indexPhoto.src} alt="Bruno Cunha Lima em demonstração de robótica no evento INDEX" />
+      <div class="media-frame" data-media-frame>
+        <img src={indexPhoto.src} alt="Bruno Cunha Lima em demonstração de robótica no evento INDEX" />
+        <div class="media-controls" data-media-controls aria-label="Event media controls">
+          <button type="button" data-media-prev aria-label="Previous event photo">‹</button>
+          <button type="button" data-media-next aria-label="Next event photo">›</button>
+        </div>
+      </div>
       <figcaption>{t.indexCaption}</figcaption>
     </figure>
     <figure class="media-slide media-feature" data-media-slide hidden>
-      <img src={siintecTurtlePhoto.src} alt="Bruno Cunha Lima em apresentação de pôster no SIINTEC sobre retrofit do TurtleBot2i para ROS 2" />
+      <div class="media-frame" data-media-frame>
+        <img src={siintecTurtlePhoto.src} alt="Bruno Cunha Lima em apresentação de pôster no SIINTEC sobre retrofit do TurtleBot2i para ROS 2" />
+      </div>
       <figcaption>{t.siintecTurtleCaption}</figcaption>
     </figure>
     <figure class="media-slide media-feature" data-media-slide hidden>
-      <img src={siintecIotPhoto.src} alt="Bruno Cunha Lima em apresentação de pôster no SIINTEC sobre IoT e automação" />
+      <div class="media-frame" data-media-frame>
+        <img src={siintecIotPhoto.src} alt="Bruno Cunha Lima em apresentação de pôster no SIINTEC sobre IoT e automação" />
+      </div>
       <figcaption>{t.siintecIotCaption}</figcaption>
     </figure>
-    <div class="media-controls" aria-label="Event media controls">
-      <button type="button" data-media-prev aria-label="Previous event photo">‹</button>
-      <button type="button" data-media-next aria-label="Next event photo">›</button>
-    </div>
   </div>
 </section>
 

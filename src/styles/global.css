@@ -346,6 +346,10 @@ h3 {
   display: none;
 }
 
+.media-frame {
+  position: relative;
+}
+
 .project-visual {
   align-items: end;
   background: var(--surface-soft);
