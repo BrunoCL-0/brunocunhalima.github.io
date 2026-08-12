@@ -30,12 +30,12 @@ export const experiences: Experience[] = [
     },
     highlights: {
       pt: [
-        "Desenvolvimento e integração de software robótico para uma plataforma AGV equipada com manipulador.",
+        "Desenvolvimento e integração de software robótico para uma plataforma AGV equipada com dois manipuladores.",
         "Implementação de fluxos com ROS 2, C++, Python, Linux, navegação autônoma, SLAM, motion planning e MoveIt 2.",
         "Contribuição na concepção, experimentação e validação de soluções de manipulação móvel para aplicações reais."
       ],
       en: [
-        "Developed and integrated robotic software for an AGV platform equipped with a robotic manipulator.",
+        "Developed and integrated robotic software for an AGV platform equipped with two manipulators.",
         "Implemented workflows with ROS 2, C++, Python, Linux, autonomous navigation, SLAM, motion planning, and MoveIt 2.",
         "Contributed to the design, experimentation, and validation of mobile manipulation solutions for real-world applications."
       ]

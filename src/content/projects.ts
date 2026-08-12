@@ -61,26 +61,26 @@ const projectItems: Project[] = [
   {
     slug: "agv-mobile-manipulation",
     priority: 2,
-    image: "soft.png",
+    image: "agv-manipulation-concept.png",
     videoLabel: {
       pt: "Conceito de manipulação móvel com AGV",
       en: "Mobile manipulation concept with AGV"
     },
     imageAlt: {
-      pt: "Manipulador soft usado como referência visual do projeto de manipulação móvel",
-      en: "Soft manipulator used as a visual reference for the mobile manipulation project"
+      pt: "Composição com robô terrestre Scout, braço UR7 e manipulador soft usado no projeto de manipulação móvel",
+      en: "Composite with a Scout ground robot, UR7 arm, and soft manipulator used in the mobile manipulation project"
     },
     title: {
-      pt: "AGV com manipulador robótico",
-      en: "AGV with robotic manipulator"
+      pt: "AGV com manipuladores robóticos",
+      en: "AGV with robotic manipulators"
     },
     summary: {
       pt: "Projeto de P&D em manipulação móvel envolvendo integração de software robótico, navegação autônoma, planejamento de movimento e controle com ROS 2.",
       en: "Mobile manipulation R&D project involving robotic software integration, autonomous navigation, motion planning, and control with ROS 2."
     },
     context: {
-      pt: "Experiência em desenvolvimento e integração de sistemas robóticos para aplicações reais usando uma plataforma AGV equipada com manipulador.",
-      en: "Experience in robotic system development and integration for real-world applications using an AGV platform equipped with a manipulator."
+      pt: "Experiência em desenvolvimento e integração de sistemas robóticos para aplicações reais usando uma plataforma AGV equipada com dois manipuladores.",
+      en: "Experience in robotic system development and integration for real-world applications using an AGV platform equipped with two manipulators."
     },
     contribution: {
       pt: [
