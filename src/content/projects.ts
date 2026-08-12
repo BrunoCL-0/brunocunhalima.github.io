@@ -123,12 +123,12 @@ const projectItems: Project[] = [
       en: "RGB-D vs LiDAR Analysis for 2D SLAM"
     },
     summary: {
-      pt: "Pesquisa experimental com TurtleBot2i em ROS 2 comparando configurações de SLAM baseadas em sensores RGB-D e LiDAR, incluindo testes de percepção com YOLO para detecção de objetos e pessoas.",
-      en: "Experimental research with a TurtleBot2i in ROS 2 comparing RGB-D- and LiDAR-based SLAM configurations, including perception tests with YOLO for object and person detection."
+      pt: "Pesquisa experimental com TurtleBot2i em ROS 2 comparando configurações de SLAM baseadas em sensores RGB-D e LiDAR. Em uma frente separada, também foram realizados testes de percepção com YOLO para detecção de objetos e pessoas.",
+      en: "Experimental research with a TurtleBot2i in ROS 2 comparing RGB-D- and LiDAR-based SLAM configurations. In a separate workstream, YOLO was also tested for object and person detection."
     },
     context: {
-      pt: "Estudo de mapeamento indoor usando Orbbec Astra, Intel RealSense D435 e Velodyne VLP-16 com Cartographer e SLAM Toolbox. O objetivo foi entender limitações geométricas dos sensores RGB-D quando seus dados de profundidade são usados em pipelines de SLAM 2D, além de testar percepção com YOLO em ambiente simulado.",
-      en: "Indoor mapping study using Orbbec Astra, Intel RealSense D435, and Velodyne VLP-16 with Cartographer and SLAM Toolbox. The goal was to understand geometric limitations of RGB-D sensors when depth data is used in 2D SLAM pipelines, alongside YOLO perception tests in simulation."
+      pt: "Estudo de mapeamento indoor usando Orbbec Astra, Intel RealSense D435 e Velodyne VLP-16 com Cartographer e SLAM Toolbox. O objetivo principal foi entender limitações geométricas dos sensores RGB-D quando seus dados de profundidade são usados em pipelines de SLAM 2D. Os testes com YOLO foram conduzidos separadamente em ambiente simulado.",
+      en: "Indoor mapping study using Orbbec Astra, Intel RealSense D435, and Velodyne VLP-16 with Cartographer and SLAM Toolbox. The main goal was to understand geometric limitations of RGB-D sensors when depth data is used in 2D SLAM pipelines. The YOLO tests were conducted separately in simulation."
     },
     contribution: {
       pt: [
