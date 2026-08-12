@@ -489,7 +489,7 @@ h3 {
 }
 
 .contact-grid.compact {
-  grid-template-columns: repeat(auto-fit, minmax(min(100%, 12rem), 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 14rem), 1fr));
   margin-top: 1.5rem;
   max-width: 760px;
 }
@@ -507,6 +507,10 @@ h3 {
   text-decoration: none;
 }
 
+.contact-card > span:last-child {
+  min-width: 0;
+}
+
 .contact-card:hover {
   border-color: var(--accent);
   box-shadow: var(--shadow);
@@ -519,7 +523,12 @@ h3 {
 
 .contact-card span span {
   color: var(--muted);
-  overflow-wrap: anywhere;
+  overflow-wrap: break-word;
+  word-break: normal;
+}
+
+.contact-grid.compact .contact-card span span {
+  font-size: 0.94rem;
 }
 
 .contact-icon {
