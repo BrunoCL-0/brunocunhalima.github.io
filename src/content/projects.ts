@@ -61,14 +61,14 @@ const projectItems: Project[] = [
   {
     slug: "agv-mobile-manipulation",
     priority: 2,
-    image: "agv-manipulation-concept.png",
+    image: "soft.png",
     videoLabel: {
       pt: "Conceito de manipulação móvel com AGV",
       en: "Mobile manipulation concept with AGV"
     },
     imageAlt: {
-      pt: "Composição conceitual de uma plataforma terrestre, um manipulador colaborativo e um manipulador soft",
-      en: "Conceptual composite of a ground platform, a collaborative manipulator, and a soft manipulator"
+      pt: "Manipulador soft usado como referência visual do projeto de manipulação móvel",
+      en: "Soft manipulator used as a visual reference for the mobile manipulation project"
     },
     title: {
       pt: "AGV com manipulador robótico",
