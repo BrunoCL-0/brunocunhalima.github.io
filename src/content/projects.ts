@@ -4,6 +4,8 @@ export type Project = {
   slug: string;
   priority: number;
   image?: string;
+  video?: string;
+  videoLabel: Record<Language, string>;
   imageAlt: Record<Language, string>;
   title: Record<Language, string>;
   summary: Record<Language, string>;
@@ -18,6 +20,11 @@ const projectItems: Project[] = [
     slug: "turtlebot2i-ros2-retrofit",
     priority: 1,
     image: "turtlebot2i-retrofit.jpeg",
+    video: "nav2-navigation-demo.mp4",
+    videoLabel: {
+      pt: "Teste de navegação autônoma com Nav2 em ambiente simulado",
+      en: "Autonomous navigation test with Nav2 in a simulated environment"
+    },
     imageAlt: {
       pt: "TurtleBot2i com sensores RGB-D e LiDAR usado no projeto de retrofit para ROS 2",
       en: "TurtleBot2i with RGB-D sensors and LiDAR used in the ROS 2 retrofit project"
@@ -53,6 +60,10 @@ const projectItems: Project[] = [
     slug: "agv-mobile-manipulation",
     priority: 2,
     image: "agv-manipulation-concept.png",
+    videoLabel: {
+      pt: "Mídia pública pendente de autorização",
+      en: "Public media pending authorization"
+    },
     imageAlt: {
       pt: "Composição conceitual de uma plataforma terrestre, um manipulador colaborativo e um manipulador soft",
       en: "Conceptual composite of a ground platform, a collaborative manipulator, and a soft manipulator"
@@ -87,6 +98,11 @@ const projectItems: Project[] = [
   {
     slug: "rgbd-lidar-slam-analysis",
     priority: 3,
+    video: "yolo-detection-demo.mp4",
+    videoLabel: {
+      pt: "Teste de detecção de objetos e pessoas com YOLO em simulação",
+      en: "YOLO object and person detection test in simulation"
+    },
     imageAlt: {
       pt: "Representação visual de análise comparativa entre sensores RGB-D e LiDAR para SLAM 2D",
       en: "Visual representation of a comparative analysis between RGB-D and LiDAR sensors for 2D SLAM"
@@ -96,23 +112,25 @@ const projectItems: Project[] = [
       en: "RGB-D vs LiDAR Analysis for 2D SLAM"
     },
     summary: {
-      pt: "Pesquisa experimental com TurtleBot2i em ROS 2 comparando configurações de SLAM baseadas em sensores RGB-D e LiDAR, com foco em continuidade de paredes, representação de obstáculos e coerência global dos mapas.",
-      en: "Experimental research with a TurtleBot2i in ROS 2 comparing RGB-D- and LiDAR-based SLAM configurations, focused on wall continuity, obstacle representation, and global map coherence."
+      pt: "Pesquisa experimental com TurtleBot2i em ROS 2 comparando configurações de SLAM baseadas em sensores RGB-D e LiDAR, incluindo testes de percepção com YOLO para detecção de objetos e pessoas.",
+      en: "Experimental research with a TurtleBot2i in ROS 2 comparing RGB-D- and LiDAR-based SLAM configurations, including perception tests with YOLO for object and person detection."
     },
     context: {
-      pt: "Estudo de mapeamento indoor usando Orbbec Astra, Intel RealSense D435 e Velodyne VLP-16 com Cartographer e SLAM Toolbox. O objetivo foi entender limitações geométricas dos sensores RGB-D quando seus dados de profundidade são usados em pipelines de SLAM 2D.",
-      en: "Indoor mapping study using Orbbec Astra, Intel RealSense D435, and Velodyne VLP-16 with Cartographer and SLAM Toolbox. The goal was to understand geometric limitations of RGB-D sensors when depth data is used in 2D SLAM pipelines."
+      pt: "Estudo de mapeamento indoor usando Orbbec Astra, Intel RealSense D435 e Velodyne VLP-16 com Cartographer e SLAM Toolbox. O objetivo foi entender limitações geométricas dos sensores RGB-D quando seus dados de profundidade são usados em pipelines de SLAM 2D, além de testar percepção com YOLO em ambiente simulado.",
+      en: "Indoor mapping study using Orbbec Astra, Intel RealSense D435, and Velodyne VLP-16 with Cartographer and SLAM Toolbox. The goal was to understand geometric limitations of RGB-D sensors when depth data is used in 2D SLAM pipelines, alongside YOLO perception tests in simulation."
     },
     contribution: {
       pt: [
         "Execução de experimentos de mapeamento com sensores RGB-D e LiDAR na mesma plataforma TurtleBot2i.",
         "Comparação qualitativa de mapas de ocupação considerando descontinuidades, estruturas duplicadas e coerência global.",
-        "Análise de possíveis impactos de campo de visão, alcance efetivo, sobreposição de medições e odometria durante rotações."
+        "Análise de possíveis impactos de campo de visão, alcance efetivo, sobreposição de medições e odometria durante rotações.",
+        "Testes de detecção com YOLO para objetos e pessoas em cenário simulado."
       ],
       en: [
         "Execution of mapping experiments with RGB-D and LiDAR sensors on the same TurtleBot2i platform.",
         "Qualitative comparison of occupancy grids considering discontinuities, duplicated structures, and global coherence.",
-        "Analysis of possible effects from field of view, effective range, measurement overlap, and odometry during rotations."
+        "Analysis of possible effects from field of view, effective range, measurement overlap, and odometry during rotations.",
+        "YOLO detection tests for objects and people in a simulated scenario."
       ]
     },
     tags: ["ROS 2", "SLAM Toolbox", "Cartographer", "RGB-D", "LiDAR"],

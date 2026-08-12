@@ -22,17 +22,13 @@ export const profile = {
       eyebrow: "Engenharia Elétrica + Robótica + Software",
       title: "Bruno Cunha Lima",
       summary:
-        "Estudante de Engenharia Elétrica construindo experiência prática em robótica, ROS 2, navegação autônoma, percepção e integração de sensores.",
-      availability:
-        "Portfólio em construção contínua, com foco em projetos reais, pesquisa aplicada e documentação técnica."
+        "Estudante de Engenharia Elétrica construindo experiência prática em robótica, ROS 2, navegação autônoma, percepção e integração de sensores."
     },
     en: {
       eyebrow: "Electrical Engineering + Robotics + Software",
       title: "Bruno Cunha Lima",
       summary:
-        "Electrical Engineering student building hands-on experience with robotics, ROS 2, autonomous navigation, perception, and sensor integration.",
-      availability:
-        "Portfolio under continuous development, focused on real projects, applied research, and technical documentation."
+        "Electrical Engineering student building hands-on experience with robotics, ROS 2, autonomous navigation, perception, and sensor integration."
     }
   } satisfies Record<
     Language,
@@ -40,7 +36,6 @@ export const profile = {
       eyebrow: string;
       title: string;
       summary: string;
-      availability: string;
     }
   >
 };

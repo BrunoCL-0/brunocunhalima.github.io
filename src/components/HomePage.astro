@@ -4,10 +4,13 @@ import { projects } from "@content/projects";
 import { publications } from "@content/publications";
 import { experiences, extracurriculars } from "@content/experience";
 import { skillGroups } from "@content/skills";
+import ContactLinks from "@components/ContactLinks.astro";
 import brunoPhoto from "../assets/bruno-portrait.png";
 import indexPhoto from "../assets/bruno-robotics.jpeg";
 import turtlebotPhoto from "../assets/turtlebot2i-retrofit.jpeg";
 import agvConceptPhoto from "../assets/agv-manipulation-concept.png";
+import nav2Video from "../assets/nav2-navigation-demo.mp4";
+import yoloVideo from "../assets/yolo-detection-demo.mp4";
 import type { Language } from "@i18n/config";
 import { withBase } from "@utils/paths";
 
@@ -90,26 +93,10 @@ const projectImages = {
   "turtlebot2i-retrofit.jpeg": turtlebotPhoto.src,
   "agv-manipulation-concept.png": agvConceptPhoto.src
 } as const;
-const contacts = [
-  {
-    label: "Email",
-    value: "cunhalimabruno@gmail.com",
-    href: "mailto:cunhalimabruno@gmail.com",
-    icon: "mail"
-  },
-  {
-    label: "LinkedIn",
-    value: "bruno-cunha-lima",
-    href: "https://www.linkedin.com/in/bruno-cunha-lima-04756030a/",
-    icon: "linkedin"
-  },
-  {
-    label: "GitHub",
-    value: "BrunoCL-0",
-    href: "https://github.com/BrunoCL-0",
-    icon: "github"
-  }
-] as const;
+const projectVideos = {
+  "nav2-navigation-demo.mp4": nav2Video,
+  "yolo-detection-demo.mp4": yoloVideo
+} as const;
 ---
 
 <section class="hero">
@@ -117,7 +104,6 @@ const contacts = [
     <p class="eyebrow">{hero.eyebrow}</p>
     <h1>{hero.title}</h1>
     <p class="hero-summary">{hero.summary}</p>
-    <p class="hero-note">{hero.availability}</p>
     <div class="hero-actions">
       <a class="button primary" href="#projects">{t.seeProjects}</a>
     </div>
@@ -158,6 +144,20 @@ const contacts = [
           <h3>{project.title[language]}</h3>
           <p>{project.summary[language]}</p>
           <p class="project-context">{project.context[language]}</p>
+          {
+            project.video && (
+              <figure class="project-video-frame">
+                <video
+                  src={projectVideos[project.video as keyof typeof projectVideos]}
+                  controls
+                  muted
+                  playsinline
+                  preload="metadata"
+                />
+                <figcaption>{project.videoLabel[language]}</figcaption>
+              </figure>
+            )
+          }
           <ul class="tag-list">
             {project.tags.map((tag) => <li>{tag}</li>)}
           </ul>
@@ -279,43 +279,5 @@ const contacts = [
     <h2>{t.contact}</h2>
     <p>{t.contactIntro}</p>
   </div>
-  <div class="contact-grid">
-    {
-      contacts.map((contact) => (
-        <a class="contact-card" href={contact.href}>
-          <span class="contact-icon" aria-hidden="true">
-            {
-              contact.icon === "mail" && (
-                <svg viewBox="0 0 24 24" role="img">
-                  <path d="M4 6h16v12H4z" />
-                  <path d="m4 7 8 6 8-6" />
-                </svg>
-              )
-            }
-            {
-              contact.icon === "linkedin" && (
-                <svg viewBox="0 0 24 24" role="img">
-                  <path d="M6.5 10v8" />
-                  <path d="M6.5 6v.01" />
-                  <path d="M11 18v-8" />
-                  <path d="M11 13.5c0-2.1 1.25-3.5 3.25-3.5S18 11.35 18 14v4" />
-                </svg>
-              )
-            }
-            {
-              contact.icon === "github" && (
-                <svg viewBox="0 0 24 24" role="img">
-                  <path d="M12 3.5a8.5 8.5 0 0 0-2.7 16.56c.43.08.58-.18.58-.41v-1.44c-2.39.52-2.89-1.03-2.89-1.03-.39-.99-.96-1.25-.96-1.25-.79-.54.06-.53.06-.53.87.06 1.33.9 1.33.9.77 1.32 2.03.94 2.52.72.08-.56.3-.94.55-1.16-1.91-.22-3.92-.96-3.92-4.25 0-.94.34-1.71.9-2.31-.09-.22-.39-1.1.08-2.28 0 0 .73-.23 2.4.88A8.3 8.3 0 0 1 12 8.13c.7 0 1.4.09 2.06.27 1.66-1.11 2.39-.88 2.39-.88.47 1.18.17 2.06.08 2.28.56.6.9 1.37.9 2.31 0 3.3-2.01 4.03-3.93 4.24.31.27.59.8.59 1.61v1.69c0 .23.15.49.59.41A8.5 8.5 0 0 0 12 3.5Z" />
-                </svg>
-              )
-            }
-          </span>
-          <span>
-            <strong>{contact.label}</strong>
-            <span>{contact.value}</span>
-          </span>
-        </a>
-      ))
-    }
-  </div>
+  <ContactLinks />
 </section>

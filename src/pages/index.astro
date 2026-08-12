@@ -1,6 +1,7 @@
 ---
 import { languages } from "@i18n/config";
 import { withBase } from "@utils/paths";
+import ContactLinks from "@components/ContactLinks.astro";
 import brunoPhoto from "../assets/bruno-portrait.png";
 import "@styles/global.css";
 ---
@@ -27,6 +28,7 @@ import "@styles/global.css";
             <a class="button primary" href={withBase("en/#projects")} data-language="en">See projects</a>
             <a class="button secondary" href={withBase(languages.pt.path)} data-language="pt">Português</a>
           </div>
+          <ContactLinks compact />
         </div>
         <img src={brunoPhoto.src} alt="Portrait of Bruno Cunha Lima" />
       </section>
