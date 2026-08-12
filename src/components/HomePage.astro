@@ -8,7 +8,9 @@ import ContactLinks from "@components/ContactLinks.astro";
 import brunoPhoto from "../assets/bruno-portrait.png";
 import indexPhoto from "../assets/bruno-robotics.jpeg";
 import siintecIotPhoto from "../assets/siintec-iot-presentation.jpeg";
+import siintecTurtlePhoto from "../assets/siintec-turtle-presentation.png";
 import turtlebotPhoto from "../assets/turtlebot2i-retrofit.jpeg";
+import gazeboTurtlebotPhoto from "../assets/gazebo-turtlebot-sensors.png";
 import agvConceptPhoto from "../assets/agv-manipulation-concept.png";
 import nav2Video from "../assets/nav2-navigation-demo.mp4";
 import yoloVideo from "../assets/yolo-detection-demo.webm";
@@ -49,6 +51,8 @@ const copy = {
       "Registros pontuais de apresentações, demonstrações técnicas e contato com projetos em eventos.",
     indexCaption:
       "Participação no evento INDEX com demonstração de robótica e manipulação móvel no SENAI CIMATEC.",
+    siintecTurtleCaption:
+      "Apresentação no SIINTEC do trabalho sobre retrofit do TurtleBot2i para ROS 2.",
     siintecIotCaption:
       "Apresentação no SIINTEC do trabalho sobre sistema de medição elétrica residencial com IoT e automação.",
     experience: "Experiência profissional",
@@ -79,6 +83,8 @@ const copy = {
       "Selected records from presentations, technical demonstrations, and project showcases.",
     indexCaption:
       "Participation at the INDEX event with a robotics and mobile manipulation demonstration at SENAI CIMATEC.",
+    siintecTurtleCaption:
+      "SIINTEC presentation of the work on the TurtleBot2i retrofit for ROS 2.",
     siintecIotCaption:
       "SIINTEC presentation of the work on a residential electrical measurement system with IoT and automation.",
     experience: "Experience",
@@ -103,6 +109,7 @@ const t = copy[language];
 const hero = profile.hero[language];
 const projectImages = {
   "turtlebot2i-retrofit.jpeg": turtlebotPhoto.src,
+  "gazebo-turtlebot-sensors.png": gazeboTurtlebotPhoto.src,
   "agv-manipulation-concept.png": agvConceptPhoto.src
 } as const;
 const projectVideos = {
@@ -226,12 +233,16 @@ const projectVideos = {
   </div>
   <div class="media-gallery event-carousel" data-carousel>
     <figure class="media-slide media-feature" data-media-slide>
-      <img src={siintecIotPhoto.src} alt="Bruno Cunha Lima em apresentação de pôster no SIINTEC sobre IoT e automação" />
-      <figcaption>{t.siintecIotCaption}</figcaption>
-    </figure>
-    <figure class="media-slide media-feature" data-media-slide hidden>
       <img src={indexPhoto.src} alt="Bruno Cunha Lima em demonstração de robótica no evento INDEX" />
       <figcaption>{t.indexCaption}</figcaption>
+    </figure>
+    <figure class="media-slide media-feature" data-media-slide hidden>
+      <img src={siintecTurtlePhoto.src} alt="Bruno Cunha Lima em apresentação de pôster no SIINTEC sobre retrofit do TurtleBot2i para ROS 2" />
+      <figcaption>{t.siintecTurtleCaption}</figcaption>
+    </figure>
+    <figure class="media-slide media-feature" data-media-slide hidden>
+      <img src={siintecIotPhoto.src} alt="Bruno Cunha Lima em apresentação de pôster no SIINTEC sobre IoT e automação" />
+      <figcaption>{t.siintecIotCaption}</figcaption>
     </figure>
     <div class="media-controls" aria-label="Event media controls">
       <button type="button" data-media-prev aria-label="Previous event photo">‹</button>

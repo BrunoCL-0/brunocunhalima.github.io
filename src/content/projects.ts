@@ -95,14 +95,15 @@ const projectItems: Project[] = [
   {
     slug: "rgbd-lidar-slam-analysis",
     priority: 3,
+    image: "gazebo-turtlebot-sensors.png",
     video: "yolo-detection-demo.webm",
     videoLabel: {
       pt: "Teste de detecção de objetos e pessoas com YOLO em simulação",
       en: "YOLO object and person detection test in simulation"
     },
     imageAlt: {
-      pt: "Representação visual de análise comparativa entre sensores RGB-D e LiDAR para SLAM 2D",
-      en: "Visual representation of a comparative analysis between RGB-D and LiDAR sensors for 2D SLAM"
+      pt: "TurtleBot2i em simulação no Gazebo com sensores RGB-D e LiDAR",
+      en: "TurtleBot2i in Gazebo simulation with RGB-D and LiDAR sensors"
     },
     title: {
       pt: "Análise RGB-D vs LiDAR em SLAM 2D",
