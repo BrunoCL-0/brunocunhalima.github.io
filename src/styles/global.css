@@ -444,6 +444,12 @@ h3 {
   text-align: center;
 }
 
+.project-card .media-count {
+  font-size: 0.68rem;
+  min-width: 1.9rem;
+  padding: 0.28rem 0.34rem;
+}
+
 .project-visual span {
   background: linear-gradient(180deg, rgba(0, 109, 119, 0.9), rgba(179, 92, 46, 0.7));
   border-radius: 5px 5px 0 0;
