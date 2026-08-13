@@ -151,6 +151,12 @@ button:focus-visible {
   color: var(--text);
 }
 
+.nav-links a.is-active,
+.nav-links a[aria-current="location"] {
+  color: var(--accent-strong);
+  font-weight: 800;
+}
+
 .language-switch {
   display: flex;
   gap: 0.35rem;
@@ -395,6 +401,7 @@ h3 {
 }
 
 .media-controls {
+  align-items: center;
   display: flex;
   gap: 0.25rem;
   position: absolute;
@@ -422,6 +429,19 @@ h3 {
 .media-controls button:hover {
   border-color: var(--accent);
   color: var(--accent-strong);
+}
+
+.media-count {
+  background: rgba(255, 255, 255, 0.92);
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  color: var(--ink-soft);
+  font-size: 0.78rem;
+  font-weight: 800;
+  line-height: 1;
+  min-width: 2.35rem;
+  padding: 0.38rem 0.45rem;
+  text-align: center;
 }
 
 .project-visual span {

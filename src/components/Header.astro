@@ -40,7 +40,7 @@ const labels = {
   <nav class="nav-shell" aria-label={labels[language].nav}>
     <a class="brand" href={withBase(languages[language].path)}>Bruno Cunha Lima</a>
     <div class="nav-links">
-      {nav[language].map(([label, href]) => <a href={href}>{label}</a>)}
+      {nav[language].map(([label, href]) => <a href={href} data-nav-link={href}>{label}</a>)}
     </div>
     <div class="language-switch" aria-label={labels[language].language}>
       <a href={withBase(languages.pt.path)} data-language-switch="pt" aria-current={language === "pt" ? "page" : undefined}>PT</a>
@@ -57,4 +57,47 @@ const labels = {
       if (language) localStorage.setItem("preferred-language", language);
     });
   });
+
+  const navLinks = Array.from(document.querySelectorAll<HTMLAnchorElement>("[data-nav-link]"));
+  const navTargets = navLinks
+    .map((link) => {
+      const target = document.querySelector(link.getAttribute("href") ?? "");
+      return target ? { link, target } : undefined;
+    })
+    .filter(Boolean) as { link: HTMLAnchorElement; target: Element }[];
+
+  function setActiveLink(activeId: string) {
+    navTargets.forEach(({ link, target }) => {
+      const isActive = target.id === activeId;
+      link.classList.toggle("is-active", isActive);
+      if (isActive) {
+        link.setAttribute("aria-current", "location");
+      } else {
+        link.removeAttribute("aria-current");
+      }
+    });
+  }
+
+  if (navTargets.length > 0) {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        const visible = entries
+          .filter((entry) => entry.isIntersecting)
+          .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
+        if (visible?.target.id) setActiveLink(visible.target.id);
+      },
+      {
+        rootMargin: "-24% 0px -58% 0px",
+        threshold: [0, 0.2, 0.45, 0.7]
+      }
+    );
+
+    navTargets.forEach(({ link, target }) => {
+      observer.observe(target);
+      link.addEventListener("click", () => setActiveLink(target.id));
+    });
+
+    const initialHash = window.location.hash.replace("#", "");
+    if (initialHash) setActiveLink(initialHash);
+  }
 </script>

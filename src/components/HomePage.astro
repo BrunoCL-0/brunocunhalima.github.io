@@ -7,6 +7,7 @@ import { skillGroups } from "@content/skills";
 import ContactLinks from "@components/ContactLinks.astro";
 import brunoPhoto from "../assets/bruno-portrait.png";
 import indexPhoto from "../assets/bruno-robotics.jpeg";
+import h2EventPhoto from "../assets/h2-event-trophy.png";
 import siintecIotPhoto from "../assets/siintec-iot-presentation.jpeg";
 import siintecTurtlePhoto from "../assets/siintec-turtle-presentation.png";
 import turtlebotPhoto from "../assets/turtlebot2i-retrofit.jpeg";
@@ -28,6 +29,7 @@ type ProjectMediaItem =
       type: "image";
       src: string;
       alt: string;
+      label: string;
     }
   | {
       type: "video";
@@ -52,6 +54,8 @@ const copy = {
       "Registros pontuais de apresentações, demonstrações técnicas e contato com projetos em eventos.",
     indexCaption:
       "Participação no INDEX Bahia representando o SENAI CIMATEC, com demonstração integrando o robô colaborativo FAIRINO FR5 e a plataforma quadrúpede Unitree B1. Atuei no algoritmo de controle do manipulador e na coordenação das trajetórias.",
+    h2Caption:
+      "Participação com a equipe no SAE BRASIL & Ballard Student H2 Challenge 2025, conquistando 3º lugar na categoria H2 Challenge Enduro.",
     siintecTurtleCaption:
       "Apresentação no SIINTEC do trabalho sobre retrofit do TurtleBot2i para ROS 2.",
     siintecIotCaption:
@@ -85,6 +89,8 @@ const copy = {
       "Selected records from presentations, technical demonstrations, and project showcases.",
     indexCaption:
       "Participation at INDEX Bahia representing SENAI CIMATEC, with a demonstration integrating the FAIRINO FR5 collaborative robot and the Unitree B1 quadruped platform. I worked on the manipulator control algorithm and trajectory coordination.",
+    h2Caption:
+      "Team participation in the SAE BRASIL & Ballard Student H2 Challenge 2025, earning 3rd place in the H2 Challenge Enduro category.",
     siintecTurtleCaption:
       "SIINTEC presentation of the work on the TurtleBot2i retrofit for ROS 2.",
     siintecIotCaption:
@@ -152,7 +158,8 @@ const projectVideos = {
             ? {
                 type: "image" as const,
                 src: projectImages[project.image as keyof typeof projectImages],
-                alt: project.imageAlt[language]
+                alt: project.imageAlt[language],
+                label: project.imageLabel[language]
               }
             : undefined,
           project.video
@@ -185,11 +192,12 @@ const projectVideos = {
                       {media.length > 1 && index === 0 && (
                         <div class="media-controls" data-media-controls aria-label="Project media controls">
                           <button type="button" data-media-prev aria-label="Previous media">‹</button>
+                          <span class="media-count" data-media-count aria-live="polite">{`${index + 1}/${media.length}`}</span>
                           <button type="button" data-media-next aria-label="Next media">›</button>
                         </div>
                       )}
                     </div>
-                    {item.type === "video" && <figcaption>{item.label}</figcaption>}
+                    <figcaption>{item.label}</figcaption>
                   </figure>
                 ))
               ) : (
@@ -230,6 +238,8 @@ const projectVideos = {
         if (!isActive) slide.querySelector("video")?.pause();
       });
       const activeFrame = slides[current]?.querySelector("[data-media-frame]");
+      const count = controls?.querySelector("[data-media-count]");
+      if (count) count.textContent = `${current + 1}/${slides.length}`;
       if (controls && activeFrame) activeFrame.append(controls);
     }
 
@@ -249,10 +259,17 @@ const projectVideos = {
         <img src={indexPhoto.src} alt="Bruno Cunha Lima em demonstração de robótica no evento INDEX" />
         <div class="media-controls" data-media-controls aria-label="Event media controls">
           <button type="button" data-media-prev aria-label="Previous event photo">‹</button>
+          <span class="media-count" data-media-count aria-live="polite">1/4</span>
           <button type="button" data-media-next aria-label="Next event photo">›</button>
         </div>
       </div>
       <figcaption>{t.indexCaption}</figcaption>
+    </figure>
+    <figure class="media-slide media-feature" data-media-slide hidden>
+      <div class="media-frame" data-media-frame>
+        <img src={h2EventPhoto.src} alt="Equipe no SAE BRASIL H2 Challenge com destaque para o troféu de terceiro lugar" />
+      </div>
+      <figcaption>{t.h2Caption}</figcaption>
     </figure>
     <figure class="media-slide media-feature" data-media-slide hidden>
       <div class="media-frame" data-media-frame>

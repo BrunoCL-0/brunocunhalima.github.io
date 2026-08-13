@@ -4,6 +4,7 @@ export type Project = {
   slug: string;
   priority: number;
   image?: string;
+  imageLabel: Record<Language, string>;
   video?: string;
   extraVideos?: {
     video: string;
@@ -23,11 +24,24 @@ const projectItems: Project[] = [
     slug: "turtlebot2i-ros2-retrofit",
     priority: 1,
     image: "turtlebot2i-retrofit.jpeg",
+    imageLabel: {
+      pt: "TurtleBot2i físico com sensores RGB-D e LiDAR",
+      en: "Physical TurtleBot2i with RGB-D sensors and LiDAR"
+    },
     video: "nav2-physical-demo.mp4",
     videoLabel: {
       pt: "Teste de navegação autônoma com Nav2 no robô físico",
       en: "Autonomous navigation test with Nav2 on the physical robot"
     },
+    extraVideos: [
+      {
+        video: "nav2-navigation-demo.mp4",
+        videoLabel: {
+          pt: "Teste de navegação autônoma com Nav2 em ambiente simulado",
+          en: "Autonomous navigation test with Nav2 in a simulated environment"
+        }
+      }
+    ],
     imageAlt: {
       pt: "TurtleBot2i com sensores RGB-D e LiDAR usado no projeto de retrofit para ROS 2",
       en: "TurtleBot2i with RGB-D sensors and LiDAR used in the ROS 2 retrofit project"
@@ -62,6 +76,10 @@ const projectItems: Project[] = [
     slug: "agv-mobile-manipulation",
     priority: 2,
     image: "agv-manipulation-concept.png",
+    imageLabel: {
+      pt: "Scout, UR7 e manipulador soft no conceito de manipulação móvel",
+      en: "Scout, UR7, and soft manipulator in the mobile manipulation concept"
+    },
     videoLabel: {
       pt: "Conceito de manipulação móvel com AGV",
       en: "Mobile manipulation concept with AGV"
@@ -100,10 +118,13 @@ const projectItems: Project[] = [
     slug: "rgbd-lidar-slam-analysis",
     priority: 3,
     image: "gazebo-turtlebot-sensors.png",
-    video: "nav2-navigation-demo.mp4",
+    imageLabel: {
+      pt: "TurtleBot2i simulado no Gazebo com sensores RGB-D e LiDAR",
+      en: "Simulated TurtleBot2i in Gazebo with RGB-D sensors and LiDAR"
+    },
     videoLabel: {
-      pt: "Teste de navegação autônoma com Nav2 em ambiente simulado",
-      en: "Autonomous navigation test with Nav2 in a simulated environment"
+      pt: "Mídia do projeto de análise RGB-D vs LiDAR",
+      en: "RGB-D vs LiDAR analysis project media"
     },
     extraVideos: [
       {
