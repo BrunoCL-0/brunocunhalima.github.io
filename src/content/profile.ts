@@ -3,7 +3,7 @@ import type { Language } from "@i18n/config";
 export const profile = {
   name: "Bruno Cunha Lima",
   education: {
-    period: "2022 - present",
+    period: "2022 - PRESENT",
     degree: {
       pt: "Bacharelado em Engenharia Elétrica",
       en: "BSc in Electrical Engineering"
