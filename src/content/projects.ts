@@ -181,15 +181,15 @@ const projectItems: Project[] = [
     priority: 3,
     image: "soft-climber-cycle-step6.png",
     imageLabel: {
-      pt: "ROBÔ ESCALADOR DE DUTOS COM MANIPULADORES FLEXÍVEIS",
-      en: "ROBÔ ESCALADOR DE DUTOS COM MANIPULADORES FLEXÍVEIS"
+      pt: "Robô escalador de dutos com manipuladores flexíveis",
+      en: "Pipe-climbing robot with flexible manipulators"
     },
     extraImages: [
       {
         image: "soft-climber-locomotion-cycle.png",
         imageLabel: {
-          pt: "Figura 8: comportamento do robô durante um ciclo completo de locomoção",
-          en: "Figure 8: robot behavior during a complete locomotion cycle"
+          pt: "Comportamento do robô durante um ciclo completo de locomoção",
+          en: "Robot behavior during a complete locomotion cycle"
         },
         imageAlt: {
           pt: "Sequência em seis etapas mostrando o robô soft climber se movimentando em um duto horizontal",
@@ -199,8 +199,8 @@ const projectItems: Project[] = [
       {
         image: "soft-climber-arm-actuation.png",
         imageLabel: {
-          pt: "Figura 7: comportamento real do braço durante a atuação",
-          en: "Figure 7: actual behavior of the arm during actuation"
+          pt: "Comportamento real do braço durante a atuação",
+          en: "Actual behavior of the arm during actuation"
         },
         imageAlt: {
           pt: "Três imagens mostrando o manipulador flexível abraçando o duto durante a atuação por tendões",
