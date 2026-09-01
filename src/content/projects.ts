@@ -276,11 +276,11 @@ const projectItems: Project[] = [
         },
         body: {
           pt: [
-            "Os experimentos demonstraram locomoção contínua, com avanço médio de aproximadamente 20 cm por ciclo de 100 s. A análise indicou uma dinâmica sequencial marcada por atrito e comportamento stick-slip.",
+            "Os experimentos demonstraram locomoção contínua durante os ciclos de teste. A análise indicou uma dinâmica sequencial marcada por atrito e comportamento stick-slip.",
             "A principal lição foi que o modelo geométrico ajuda no projeto inicial, mas o desempenho real depende fortemente das condições de contato e de estratégias futuras de controle em malha fechada."
           ],
           en: [
-            "The experiments demonstrated continuous locomotion, with an average displacement of approximately 20 cm per 100 s cycle. The analysis indicated a sequential gait shaped by friction and stick-slip behavior.",
+            "The experiments demonstrated continuous locomotion during the test cycles. The analysis indicated a sequential gait shaped by friction and stick-slip behavior.",
             "The main lesson was that geometric modeling is useful for early design, but real performance depends strongly on contact conditions and future closed-loop control strategies."
           ]
         }
