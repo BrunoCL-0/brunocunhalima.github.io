@@ -2,6 +2,12 @@
 import BaseLayout from "@layouts/BaseLayout.astro";
 import { projects } from "@content/projects";
 import { withBase } from "@utils/paths";
+import turtlebotPhoto from "../../../assets/turtlebot2i-retrofit.jpeg";
+import gazeboTurtlebotPhoto from "../../../assets/gazebo-turtlebot-sensors.png";
+import agvConceptPhoto from "../../../assets/agv-manipulation-concept.png";
+import softClimberStepPhoto from "../../../assets/soft-climber-cycle-step6.png";
+import softClimberCyclePhoto from "../../../assets/soft-climber-locomotion-cycle.png";
+import softClimberActuationPhoto from "../../../assets/soft-climber-arm-actuation.png";
 
 export function getStaticPaths() {
   return projects.map((project) => ({
@@ -11,6 +17,28 @@ export function getStaticPaths() {
 }
 
 const { project } = Astro.props;
+const projectImages = {
+  "turtlebot2i-retrofit.jpeg": turtlebotPhoto.src,
+  "gazebo-turtlebot-sensors.png": gazeboTurtlebotPhoto.src,
+  "agv-manipulation-concept.png": agvConceptPhoto.src,
+  "soft-climber-cycle-step6.png": softClimberStepPhoto.src,
+  "soft-climber-locomotion-cycle.png": softClimberCyclePhoto.src,
+  "soft-climber-arm-actuation.png": softClimberActuationPhoto.src
+} as const;
+const detailImages = [
+  project.image
+    ? {
+        src: projectImages[project.image as keyof typeof projectImages],
+        alt: project.imageAlt.pt,
+        label: project.imageLabel.pt
+      }
+    : undefined,
+  ...(project.extraImages?.map((item) => ({
+    src: projectImages[item.image as keyof typeof projectImages],
+    alt: item.imageAlt.pt,
+    label: item.imageLabel.pt
+  })) ?? [])
+].filter(Boolean) as { src: string; alt: string; label: string }[];
 ---
 
 <BaseLayout title={`${project.title.pt} | Bruno Cunha Lima`} description={project.summary.pt} language="pt">
@@ -19,6 +47,16 @@ const { project } = Astro.props;
     <p class="eyebrow">Estudo de caso</p>
     <h1>{project.title.pt}</h1>
     <p>{project.summary.pt}</p>
+    {detailImages.length > 0 && (
+      <div class="project-detail-media">
+        {detailImages.map((item) => (
+          <figure>
+            <img src={item.src} alt={item.alt} />
+            <figcaption>{item.label}</figcaption>
+          </figure>
+        ))}
+      </div>
+    )}
     <section>
       <h2>Contexto</h2>
       <p>{project.context.pt}</p>
@@ -29,5 +67,11 @@ const { project } = Astro.props;
         {project.contribution.pt.map((item) => <li>{item}</li>)}
       </ul>
     </section>
+    {project.detailSections?.map((section) => (
+      <section>
+        <h2>{section.title.pt}</h2>
+        {section.body.pt.map((paragraph) => <p>{paragraph}</p>)}
+      </section>
+    ))}
   </article>
 </BaseLayout>

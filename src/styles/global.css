@@ -659,6 +659,33 @@ h3 {
   max-width: 14ch;
 }
 
+.project-detail-media {
+  display: grid;
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+
+.project-detail-media figure {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  margin: 0;
+  overflow: hidden;
+}
+
+.project-detail-media img {
+  background: var(--surface-soft);
+  display: block;
+  max-height: 34rem;
+  object-fit: contain;
+  width: 100%;
+}
+
+.project-detail-media figcaption {
+  color: var(--muted);
+  padding: 0.8rem 1rem;
+}
+
 @media (max-width: 860px) {
   .entry-card {
     grid-template-columns: 1fr;

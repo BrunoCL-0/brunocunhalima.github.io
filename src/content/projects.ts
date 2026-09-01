@@ -5,6 +5,11 @@ export type Project = {
   priority: number;
   image?: string;
   imageLabel: Record<Language, string>;
+  extraImages?: {
+    image: string;
+    imageLabel: Record<Language, string>;
+    imageAlt: Record<Language, string>;
+  }[];
   video?: string;
   extraVideos?: {
     video: string;
@@ -16,6 +21,10 @@ export type Project = {
   summary: Record<Language, string>;
   context: Record<Language, string>;
   contribution: Record<Language, string[]>;
+  detailSections?: {
+    title: Record<Language, string>;
+    body: Record<Language, string[]>;
+  }[];
   tags: string[];
 };
 
@@ -116,7 +125,7 @@ const projectItems: Project[] = [
   },
   {
     slug: "rgbd-lidar-slam-analysis",
-    priority: 3,
+    priority: 4,
     image: "gazebo-turtlebot-sensors.png",
     imageLabel: {
       pt: "TurtleBot2i simulado no Gazebo com sensores RGB-D e LiDAR",
@@ -166,6 +175,134 @@ const projectItems: Project[] = [
       ]
     },
     tags: ["ROS 2", "SLAM Toolbox", "Cartographer", "RGB-D", "LiDAR"]
+  },
+  {
+    slug: "soft-climber-pipe-robot",
+    priority: 3,
+    image: "soft-climber-cycle-step6.png",
+    imageLabel: {
+      pt: "Zoom do passo 6 da locomoção no duto horizontal",
+      en: "Zoomed view of step 6 during horizontal pipe locomotion"
+    },
+    extraImages: [
+      {
+        image: "soft-climber-locomotion-cycle.png",
+        imageLabel: {
+          pt: "Figura 8: comportamento do robô durante um ciclo completo de locomoção",
+          en: "Figure 8: robot behavior during a complete locomotion cycle"
+        },
+        imageAlt: {
+          pt: "Sequência em seis etapas mostrando o robô soft climber se movimentando em um duto horizontal",
+          en: "Six-step sequence showing the soft climber robot moving along a horizontal pipe"
+        }
+      },
+      {
+        image: "soft-climber-arm-actuation.png",
+        imageLabel: {
+          pt: "Figura 7: comportamento real do braço durante a atuação",
+          en: "Figure 7: actual behavior of the arm during actuation"
+        },
+        imageAlt: {
+          pt: "Três imagens mostrando o manipulador flexível abraçando o duto durante a atuação por tendões",
+          en: "Three images showing the flexible manipulator wrapping around the pipe during tendon actuation"
+        }
+      }
+    ],
+    videoLabel: {
+      pt: "Mídia do projeto Soft Climber",
+      en: "Soft Climber project media"
+    },
+    imageAlt: {
+      pt: "Recorte do sexto passo da locomoção do robô escalador de dutos, com manipulador flexível acionado por tendão envolvendo o tubo",
+      en: "Crop of the sixth locomotion step of the pipe-climbing robot, with a tendon-driven flexible manipulator around the tube"
+    },
+    title: {
+      pt: "Robô escalador de dutos acionado por tendões",
+      en: "Tendon-driven pipe-climbing robot"
+    },
+    summary: {
+      pt: "Prova de conceito de um robô escalador de dutos com manipuladores flexíveis acionados por tendões, combinando estrutura rígida, interfaces flexíveis e validação experimental em duto horizontal.",
+      en: "Proof of concept for a pipe-climbing robot with tendon-driven flexible manipulators, combining rigid structure, compliant interfaces, and experimental validation in a horizontal pipe."
+    },
+    context: {
+      pt: "Projeto ligado ao TCC e ao artigo Development and Experimental Evaluation of a Tendon-Driven Hybrid Climbing Robot, voltado à locomoção em tubulações usando uma arquitetura híbrida de robótica rígida e soft robotics.",
+      en: "Project connected to my undergraduate thesis and to the paper Development and Experimental Evaluation of a Tendon-Driven Hybrid Climbing Robot, focused on pipe locomotion using a hybrid rigid and soft robotics architecture."
+    },
+    contribution: {
+      pt: [
+        "Desenvolvimento e avaliação de uma prova de conceito para locomoção em dutos.",
+        "Uso de manipuladores flexíveis acionados por tendões para adaptação à geometria do tubo.",
+        "Validação experimental do ciclo de locomoção em um duto horizontal, analisando contato, aderência e deslocamento."
+      ],
+      en: [
+        "Development and evaluation of a proof of concept for in-pipe locomotion.",
+        "Use of tendon-driven flexible manipulators to adapt to the pipe geometry.",
+        "Experimental validation of the locomotion cycle in a horizontal pipe, analyzing contact, adhesion, and displacement."
+      ]
+    },
+    detailSections: [
+      {
+        title: {
+          pt: "Problema",
+          en: "Problem"
+        },
+        body: {
+          pt: [
+            "A inspeção e locomoção em dutos exige um robô capaz de se adaptar à curvatura da tubulação e manter contato suficiente para gerar aderência. Em estruturas confinadas, a solução mecânica precisa equilibrar flexibilidade, força de contato e baixo peso embarcado."
+          ],
+          en: [
+            "Pipe inspection and locomotion require a robot capable of adapting to pipe curvature while maintaining enough contact to generate adhesion. In confined structures, the mechanical solution must balance flexibility, contact force, and low onboard mass."
+          ]
+        }
+      },
+      {
+        title: {
+          pt: "Abordagem técnica",
+          en: "Technical approach"
+        },
+        body: {
+          pt: [
+            "O protótipo combina elementos rígidos em ABS com interfaces flexíveis em TPE Shore A 55. A deformação dos manipuladores é gerada por tendões de Dyneema, enquanto cabos Bowden permitem transmitir esforço a partir de uma unidade remota, reduzindo a massa no corpo móvel.",
+            "A modelagem geométrica foi usada como referência inicial para estimar a curvatura e a cobertura do duto. Para o caso de teste, foi considerado um duto de 6 polegadas, com o comprimento interno do braço cobrindo aproximadamente 61,4% da circunferência."
+          ],
+          en: [
+            "The prototype combines rigid ABS elements with flexible TPE Shore A 55 interfaces. Manipulator deformation is generated through Dyneema tendons, while Bowden cables transmit force from a remote actuation unit, reducing mass on the mobile body.",
+            "Geometric modeling was used as an initial reference to estimate curvature and pipe coverage. For the test case, a 6-inch pipe was considered, with the arm's inner length covering approximately 61.4% of the circumference."
+          ]
+        }
+      },
+      {
+        title: {
+          pt: "Validação experimental",
+          en: "Experimental validation"
+        },
+        body: {
+          pt: [
+            "Os testes foram conduzidos em um duto horizontal, com atuação em tempo real via joystick. O ciclo de locomoção foi analisado em etapas de ancoragem, translação e liberação/reconfiguração, observando como o contato com o tubo e a deformação do TPE influenciam o movimento."
+          ],
+          en: [
+            "Tests were conducted in a horizontal pipe with real-time joystick actuation. The locomotion cycle was analyzed through anchoring, translation, and release/reconfiguration stages, observing how pipe contact and TPE deformation influence motion."
+          ]
+        }
+      },
+      {
+        title: {
+          pt: "Resultados e aprendizados",
+          en: "Results and lessons learned"
+        },
+        body: {
+          pt: [
+            "Os experimentos demonstraram locomoção contínua, com avanço médio de aproximadamente 20 cm por ciclo de 100 s. A análise indicou uma dinâmica sequencial marcada por atrito, deformação não linear do TPE e comportamento stick-slip.",
+            "A principal lição foi que o modelo geométrico ajuda no projeto inicial, mas o desempenho real depende fortemente das condições de contato, da resposta viscoelástica do material e de estratégias futuras de controle em malha fechada."
+          ],
+          en: [
+            "The experiments demonstrated continuous locomotion, with an average displacement of approximately 20 cm per 100 s cycle. The analysis indicated a sequential gait shaped by friction, nonlinear TPE deformation, and stick-slip behavior.",
+            "The main lesson was that geometric modeling is useful for early design, but real performance depends strongly on contact conditions, material viscoelastic response, and future closed-loop control strategies."
+          ]
+        }
+      }
+    ],
+    tags: ["Soft Robotics", "Tendon-driven", "TPE", "Bowden cables", "Prototyping"]
   }
 ];
 
