@@ -79,7 +79,7 @@ const projectItems: Project[] = [
         "Validation of teleoperation, simulation, SLAM, and navigation with Nav2."
       ]
     },
-    tags: ["ROS 2", "SLAM", "Nav2", "Gazebo", "RViz"]
+    tags: ["ROS 2", "SLAM", "Nav2", "Gazebo"]
   },
   {
     slug: "agv-mobile-manipulation",
@@ -121,7 +121,7 @@ const projectItems: Project[] = [
         "Validation of mobile manipulation workflows in an applied R&D environment."
       ]
     },
-    tags: ["ROS 2", "C++", "MoveIt 2", "Navigation"]
+    tags: ["ROS 2", "C++", "MoveIt 2", "Nav2", "SLAM", "Soft Robotics"]
   },
   {
     slug: "rgbd-lidar-slam-analysis",
@@ -181,8 +181,8 @@ const projectItems: Project[] = [
     priority: 3,
     image: "soft-climber-cycle-step6.png",
     imageLabel: {
-      pt: "Zoom do passo 6 da locomoção no duto horizontal",
-      en: "Zoomed view of step 6 during horizontal pipe locomotion"
+      pt: "ROBÔ ESCALADOR DE DUTOS COM MANIPULADORES FLEXÍVEIS",
+      en: "ROBÔ ESCALADOR DE DUTOS COM MANIPULADORES FLEXÍVEIS"
     },
     extraImages: [
       {
@@ -225,18 +225,18 @@ const projectItems: Project[] = [
       en: "Proof of concept for a pipe-climbing robot with tendon-driven flexible manipulators, combining rigid structure, compliant interfaces, and experimental validation in a horizontal pipe."
     },
     context: {
-      pt: "Projeto ligado ao TCC e ao artigo Development and Experimental Evaluation of a Tendon-Driven Hybrid Climbing Robot, voltado à locomoção em tubulações usando uma arquitetura híbrida de robótica rígida e soft robotics.",
-      en: "Project connected to my undergraduate thesis and to the paper Development and Experimental Evaluation of a Tendon-Driven Hybrid Climbing Robot, focused on pipe locomotion using a hybrid rigid and soft robotics architecture."
+      pt: "Projeto ligado ao TCC, voltado à prova de conceito de um robô escalador de dutos com manipuladores flexíveis acionados por tendão. Parte desse desenvolvimento foi publicada no Congresso Brasileiro de Automática (CBA).",
+      en: "Project connected to my undergraduate thesis, focused on a proof of concept for a pipe-climbing robot with tendon-driven flexible manipulators. Part of this development was published at the Brazilian Congress of Automatica (CBA)."
     },
     contribution: {
       pt: [
-        "Desenvolvimento e avaliação de uma prova de conceito para locomoção em dutos.",
-        "Uso de manipuladores flexíveis acionados por tendões para adaptação à geometria do tubo.",
+        "Desenvolvimento de algoritmos para operação e movimentação do robô.",
+        "Desenvolvimento da cinemática do manipulador flexível acionado por tendão.",
         "Validação experimental do ciclo de locomoção em um duto horizontal, analisando contato, aderência e deslocamento."
       ],
       en: [
-        "Development and evaluation of a proof of concept for in-pipe locomotion.",
-        "Use of tendon-driven flexible manipulators to adapt to the pipe geometry.",
+        "Development of algorithms for robot operation and motion.",
+        "Development of the kinematics of the tendon-driven flexible manipulator.",
         "Experimental validation of the locomotion cycle in a horizontal pipe, analyzing contact, adhesion, and displacement."
       ]
     },
@@ -257,31 +257,15 @@ const projectItems: Project[] = [
       },
       {
         title: {
-          pt: "Abordagem técnica",
-          en: "Technical approach"
-        },
-        body: {
-          pt: [
-            "O protótipo combina elementos rígidos em ABS com interfaces flexíveis em TPE Shore A 55. A deformação dos manipuladores é gerada por tendões de Dyneema, enquanto cabos Bowden permitem transmitir esforço a partir de uma unidade remota, reduzindo a massa no corpo móvel.",
-            "A modelagem geométrica foi usada como referência inicial para estimar a curvatura e a cobertura do duto. Para o caso de teste, foi considerado um duto de 6 polegadas, com o comprimento interno do braço cobrindo aproximadamente 61,4% da circunferência."
-          ],
-          en: [
-            "The prototype combines rigid ABS elements with flexible TPE Shore A 55 interfaces. Manipulator deformation is generated through Dyneema tendons, while Bowden cables transmit force from a remote actuation unit, reducing mass on the mobile body.",
-            "Geometric modeling was used as an initial reference to estimate curvature and pipe coverage. For the test case, a 6-inch pipe was considered, with the arm's inner length covering approximately 61.4% of the circumference."
-          ]
-        }
-      },
-      {
-        title: {
           pt: "Validação experimental",
           en: "Experimental validation"
         },
         body: {
           pt: [
-            "Os testes foram conduzidos em um duto horizontal, com atuação em tempo real via joystick. O ciclo de locomoção foi analisado em etapas de ancoragem, translação e liberação/reconfiguração, observando como o contato com o tubo e a deformação do TPE influenciam o movimento."
+            "Os testes foram conduzidos em um duto horizontal, com atuação em tempo real via joystick. O ciclo de locomoção foi analisado em etapas de ancoragem, translação e liberação/reconfiguração, observando como o contato com o tubo influencia o movimento."
           ],
           en: [
-            "Tests were conducted in a horizontal pipe with real-time joystick actuation. The locomotion cycle was analyzed through anchoring, translation, and release/reconfiguration stages, observing how pipe contact and TPE deformation influence motion."
+            "Tests were conducted in a horizontal pipe with real-time joystick actuation. The locomotion cycle was analyzed through anchoring, translation, and release/reconfiguration stages, observing how pipe contact influences motion."
           ]
         }
       },
@@ -292,17 +276,17 @@ const projectItems: Project[] = [
         },
         body: {
           pt: [
-            "Os experimentos demonstraram locomoção contínua, com avanço médio de aproximadamente 20 cm por ciclo de 100 s. A análise indicou uma dinâmica sequencial marcada por atrito, deformação não linear do TPE e comportamento stick-slip.",
-            "A principal lição foi que o modelo geométrico ajuda no projeto inicial, mas o desempenho real depende fortemente das condições de contato, da resposta viscoelástica do material e de estratégias futuras de controle em malha fechada."
+            "Os experimentos demonstraram locomoção contínua, com avanço médio de aproximadamente 20 cm por ciclo de 100 s. A análise indicou uma dinâmica sequencial marcada por atrito e comportamento stick-slip.",
+            "A principal lição foi que o modelo geométrico ajuda no projeto inicial, mas o desempenho real depende fortemente das condições de contato e de estratégias futuras de controle em malha fechada."
           ],
           en: [
-            "The experiments demonstrated continuous locomotion, with an average displacement of approximately 20 cm per 100 s cycle. The analysis indicated a sequential gait shaped by friction, nonlinear TPE deformation, and stick-slip behavior.",
-            "The main lesson was that geometric modeling is useful for early design, but real performance depends strongly on contact conditions, material viscoelastic response, and future closed-loop control strategies."
+            "The experiments demonstrated continuous locomotion, with an average displacement of approximately 20 cm per 100 s cycle. The analysis indicated a sequential gait shaped by friction and stick-slip behavior.",
+            "The main lesson was that geometric modeling is useful for early design, but real performance depends strongly on contact conditions and future closed-loop control strategies."
           ]
         }
       }
     ],
-    tags: ["Soft Robotics", "Tendon-driven", "TPE", "Bowden cables", "Prototyping"]
+    tags: ["Soft Robotics", "Kinematics", "Prototyping"]
   }
 ];
 
