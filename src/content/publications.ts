@@ -14,8 +14,8 @@ export const publications: Publication[] = [
       en: "Mobile Robot Retrofit for the ROS2 Framework"
     },
     venue: {
-      pt: "SIINTEC 2025 - Conferência SENAI CIMATEC",
-      en: "SIINTEC 2025 - SENAI CIMATEC Conference"
+      pt: "XI SIINTEC\nINTERNATIONAL SYMPOSIUM ON\nINNOVATION AND TECHNOLOGY",
+      en: "XI SIINTEC\nINTERNATIONAL SYMPOSIUM ON\nINNOVATION AND TECHNOLOGY"
     },
     href: "https://doity.com.br/anais/senaicimatec/trabalho/472028"
   },
@@ -25,8 +25,8 @@ export const publications: Publication[] = [
       en: "Residential Electrical Measurement System with IoT and Automation"
     },
     venue: {
-      pt: "SIINTEC 2025 - Conferência SENAI CIMATEC",
-      en: "SIINTEC 2025 - SENAI CIMATEC Conference"
+      pt: "XI SIINTEC\nINTERNATIONAL SYMPOSIUM ON\nINNOVATION AND TECHNOLOGY",
+      en: "XI SIINTEC\nINTERNATIONAL SYMPOSIUM ON\nINNOVATION AND TECHNOLOGY"
     },
     href: "https://doity.com.br/anais/senaicimatec/trabalho/473210"
   },
@@ -64,8 +64,8 @@ export const publications: Publication[] = [
       en: "Experimental Evaluation of RGB-D- and LiDAR-Based SLAM Configurations Using a TurtleBot2i Platform"
     },
     venue: {
-      pt: "SIINTEC 2026 - Conferência SENAI CIMATEC",
-      en: "SIINTEC 2026 - SENAI CIMATEC Conference"
+      pt: "XII SIINTEC\nINTERNATIONAL SYMPOSIUM ON\nINNOVATION AND TECHNOLOGY",
+      en: "XII SIINTEC\nINTERNATIONAL SYMPOSIUM ON\nINNOVATION AND TECHNOLOGY"
     },
     status: {
       pt: "Aceito para apresentação; publicação nos anais do evento ainda pendente.",
@@ -78,8 +78,8 @@ export const publications: Publication[] = [
       en: "Technological Retrofit of a Legacy Robotic Manipulator for the ROS2 Ecosystem: A Case Study with the PhantomX Reactor Arm"
     },
     venue: {
-      pt: "SIINTEC 2026 - Conferência SENAI CIMATEC",
-      en: "SIINTEC 2026 - SENAI CIMATEC Conference"
+      pt: "XII SIINTEC\nINTERNATIONAL SYMPOSIUM ON\nINNOVATION AND TECHNOLOGY",
+      en: "XII SIINTEC\nINTERNATIONAL SYMPOSIUM ON\nINNOVATION AND TECHNOLOGY"
     },
     status: {
       pt: "Aceito para apresentação; publicação nos anais do evento ainda pendente.",

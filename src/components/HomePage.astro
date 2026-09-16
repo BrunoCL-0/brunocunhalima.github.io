@@ -377,7 +377,7 @@ const projectVideos = {
       publications.map((publication) => (
         <article>
           <h3>{publication.title[language]}</h3>
-          <p>{publication.venue[language]}</p>
+          <p class="publication-venue">{publication.venue[language]}</p>
           {publication.status && <p>{publication.status[language]}</p>}
           {publication.href && <a href={publication.href}>Link</a>}
         </article>

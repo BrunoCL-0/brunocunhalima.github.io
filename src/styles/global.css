@@ -535,6 +535,15 @@ h3 {
   align-content: start;
 }
 
+.publication-venue {
+  white-space: pre-line;
+}
+
+.publication-venue::first-line {
+  color: var(--ink);
+  font-weight: 800;
+}
+
 .contact-grid {
   display: grid;
   gap: 0.85rem;
