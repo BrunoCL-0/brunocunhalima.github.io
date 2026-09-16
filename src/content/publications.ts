@@ -46,6 +46,20 @@ export const publications: Publication[] = [
   },
   {
     title: {
+      pt: "Hydrodynamic Modeling of Open-Frame Structure ROVs Using Boundary Element Method and Simulation Validation",
+      en: "Hydrodynamic Modeling of Open-Frame Structure ROVs Using Boundary Element Method and Simulation Validation"
+    },
+    venue: {
+      pt: "Congresso Brasileiro de Automática 2026 - CBA 2026",
+      en: "2026 Brazilian Congress of Automatica - CBA 2026"
+    },
+    status: {
+      pt: "Aceito para apresentação; publicação nos anais do evento ainda pendente.",
+      en: "Accepted for presentation; proceedings publication still pending."
+    }
+  },
+  {
+    title: {
       pt: "Experimental Evaluation of RGB-D- and LiDAR-Based SLAM Configurations Using a TurtleBot2i Platform",
       en: "Experimental Evaluation of RGB-D- and LiDAR-Based SLAM Configurations Using a TurtleBot2i Platform"
     },
@@ -66,20 +80,6 @@ export const publications: Publication[] = [
     venue: {
       pt: "SIINTEC 2026 - Conferência SENAI CIMATEC",
       en: "SIINTEC 2026 - SENAI CIMATEC Conference"
-    },
-    status: {
-      pt: "Aceito para apresentação; publicação nos anais do evento ainda pendente.",
-      en: "Accepted for presentation; proceedings publication still pending."
-    }
-  },
-  {
-    title: {
-      pt: "Hydrodynamic Modeling of Open-Frame Structure ROVs Using Boundary Element Method and Simulation Validation",
-      en: "Hydrodynamic Modeling of Open-Frame Structure ROVs Using Boundary Element Method and Simulation Validation"
-    },
-    venue: {
-      pt: "Congresso Brasileiro de Automática 2026 - CBA 2026",
-      en: "2026 Brazilian Congress of Automatica - CBA 2026"
     },
     status: {
       pt: "Aceito para apresentação; publicação nos anais do evento ainda pendente.",
