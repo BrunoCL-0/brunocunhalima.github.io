@@ -37,7 +37,7 @@ export const publications: Publication[] = [
     },
     venue: {
       pt: "Congresso Brasileiro de Automática 2026 - CBA 2026",
-      en: "2026 Brazilian Congress of Automatica - CBA 2026"
+      en: "Brazilian Congress of Automatica - CBA 2026"
     },
     status: {
       pt: "Aceito para apresentação; publicação nos anais do evento ainda pendente.",
@@ -51,7 +51,7 @@ export const publications: Publication[] = [
     },
     venue: {
       pt: "Congresso Brasileiro de Automática 2026 - CBA 2026",
-      en: "2026 Brazilian Congress of Automatica - CBA 2026"
+      en: "Brazilian Congress of Automatica - CBA 2026"
     },
     status: {
       pt: "Aceito para apresentação; publicação nos anais do evento ainda pendente.",
