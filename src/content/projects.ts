@@ -174,7 +174,7 @@ const projectItems: Project[] = [
         "YOLO detection tests for objects and people in a simulated scenario."
       ]
     },
-    tags: ["ROS 2", "SLAM Toolbox", "Cartographer", "RGB-D", "LiDAR"]
+    tags: ["ROS 2", "SLAM", "Cartographer", "RGB-D", "LiDAR"]
   },
   {
     slug: "soft-climber-pipe-robot",
