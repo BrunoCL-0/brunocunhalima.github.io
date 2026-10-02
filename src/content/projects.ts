@@ -56,8 +56,8 @@ const projectItems: Project[] = [
       en: "TurtleBot2i with RGB-D sensors and LiDAR used in the ROS 2 retrofit project"
     },
     title: {
-      pt: "Retrofit do TurtleBot2i para ROS 2",
-      en: "TurtleBot2i Retrofit for ROS 2"
+      pt: "Retrofit do TurtleBot2i",
+      en: "TurtleBot2i Retrofit"
     },
     summary: {
       pt: "Migração e modernização de uma plataforma TurtleBot2i de ROS 1 para ROS 2 Humble, incluindo sensores, TF, URDF/Xacro, RViz, Gazebo, SLAM e Nav2.",
@@ -102,8 +102,8 @@ const projectItems: Project[] = [
       en: "AGV with robotic manipulators"
     },
     summary: {
-      pt: "Projeto de P&D em manipulação móvel envolvendo integração de software robótico, navegação autônoma, planejamento de movimento e controle com ROS 2.",
-      en: "Mobile manipulation R&D project involving robotic software integration, autonomous navigation, motion planning, and control with ROS 2."
+      pt: "Desenvolvimento de P&D em manipulação móvel realizado no âmbito do Sofrobos Project, envolvendo integração de software robótico, navegação autônoma, planejamento de movimento e controle com ROS 2.",
+      en: "Mobile manipulation R&D developed as part of the Sofrobos Project, involving robotic software integration, autonomous navigation, motion planning, and control with ROS 2."
     },
     context: {
       pt: "Experiência em desenvolvimento e integração de sistemas robóticos para aplicações reais usando uma plataforma AGV equipada com dois manipuladores.",
@@ -217,8 +217,8 @@ const projectItems: Project[] = [
       en: "Crop of the sixth locomotion step of the pipe-climbing robot, with a tendon-driven flexible manipulator around the tube"
     },
     title: {
-      pt: "Robô escalador de dutos acionado por tendões",
-      en: "Tendon-driven pipe-climbing robot"
+      pt: "Robô escalador de dutos com manipuladores flexíveis",
+      en: "Pipe-Climbing Robot with Flexible Manipulators"
     },
     summary: {
       pt: "Prova de conceito de um robô escalador de dutos com manipuladores flexíveis acionados por tendões, combinando estrutura rígida, interfaces flexíveis e validação experimental em duto horizontal.",
