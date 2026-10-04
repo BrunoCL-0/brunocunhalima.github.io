@@ -121,7 +121,7 @@ const projectItems: Project[] = [
         "Validation of mobile manipulation workflows in an applied R&D environment."
       ]
     },
-    tags: ["ROS 2", "C++", "MoveIt 2", "Nav2", "SLAM", "Soft Robotics"]
+    tags: ["ROS 2", "MoveIt 2", "Nav2", "SLAM", "Soft Robotics"]
   },
   {
     slug: "rgbd-lidar-slam-analysis",
