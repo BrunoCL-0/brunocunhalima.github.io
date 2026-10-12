@@ -128,6 +128,14 @@ const copy = {
 } as const;
 
 const t = copy[language];
+const eventPhotos = [
+  { image: indexPhoto, title: "INDEX Bahia", topic: { pt: "Demonstração de robótica", en: "Robotics demonstration" }, caption: t.indexCaption },
+  { image: h2EventPhoto, title: "SAE BRASIL & Ballard Student H2 Challenge 2025", topic: { pt: "Equipe TEC H2-Racing", en: "TEC H2-Racing team" }, caption: t.h2Caption },
+  { image: cbaClimberPhoto, title: "CBA 2026", topic: { pt: "Robô escalador de dutos", en: "Pipe-climbing robot" }, caption: t.cbaClimberCaption },
+  { image: cbaRovPhoto, title: "CBA 2026", topic: { pt: "Modelagem hidrodinâmica de ROVs", en: "ROV hydrodynamic modeling" }, caption: t.cbaRovCaption },
+  { image: siintecTurtlePhoto, title: "XI SIINTEC 2025", topic: { pt: "Retrofit do TurtleBot2i", en: "TurtleBot2i retrofit" }, caption: t.siintecTurtleCaption },
+  { image: siintecIotPhoto, title: "XI SIINTEC 2025", topic: { pt: "Medição elétrica e IoT", en: "Electrical measurement and IoT" }, caption: t.siintecIotCaption }
+];
 const hero = profile.hero[language];
 const projectImages = {
   "turtlebot2i-retrofit.jpeg": turtlebotPhoto.src,
@@ -250,6 +258,7 @@ const projectVideos = {
     const controls = gallery.querySelector("[data-media-controls]");
     const previousButtons = Array.from(gallery.querySelectorAll("[data-media-prev]"));
     const nextButtons = Array.from(gallery.querySelectorAll("[data-media-next]"));
+    const thumbnails = Array.from(gallery.querySelectorAll<HTMLButtonElement>("[data-event-index]"));
     let current = 0;
 
     function showSlide(index: number) {
@@ -262,11 +271,22 @@ const projectVideos = {
       const activeFrame = slides[current]?.querySelector("[data-media-frame]");
       const count = controls?.querySelector("[data-media-count]");
       if (count) count.textContent = `${current + 1}/${slides.length}`;
-      if (controls && activeFrame) activeFrame.append(controls);
+      if (controls && activeFrame && !gallery.hasAttribute("data-event-carousel")) activeFrame.append(controls);
+      thumbnails.forEach((button, index) => button.setAttribute("aria-pressed", String(index === current)));
     }
 
     previousButtons.forEach((button) => button.addEventListener("click", () => showSlide(current - 1)));
     nextButtons.forEach((button) => button.addEventListener("click", () => showSlide(current + 1)));
+    thumbnails.forEach((button, index) => button.addEventListener("click", () => showSlide(index)));
+    if (gallery.hasAttribute("data-event-carousel")) {
+      gallery.addEventListener("keydown", (event) => {
+        const key = (event as KeyboardEvent).key;
+        if (key === "ArrowLeft" || key === "ArrowRight") {
+          event.preventDefault();
+          showSlide(current + (key === "ArrowRight" ? 1 : -1));
+        }
+      });
+    }
   });
 </script>
 
@@ -275,48 +295,33 @@ const projectVideos = {
     <h2>{t.media}</h2>
     <p>{t.mediaIntro}</p>
   </div>
-  <div class="media-gallery event-carousel" data-carousel>
-    <figure class="media-slide media-feature" data-media-slide>
-      <div class="media-frame" data-media-frame>
-        <img src={indexPhoto.src} alt="Bruno Cunha Lima em demonstração de robótica no evento INDEX" />
-        <div class="media-controls" data-media-controls aria-label="Event media controls">
-          <button type="button" data-media-prev aria-label="Previous event photo">‹</button>
-          <span class="media-count" data-media-count aria-live="polite">1/6</span>
-          <button type="button" data-media-next aria-label="Next event photo">›</button>
+  <div class="media-gallery event-carousel" data-carousel data-event-carousel role="region" aria-label={t.media}>
+    {eventPhotos.map((event, index) => (
+      <figure class="media-slide media-feature" data-media-slide hidden={index !== 0}>
+        <div class="media-frame" data-media-frame>
+          <img src={event.image.src} alt={event.caption} width={event.image.width} height={event.image.height} loading="lazy" />
         </div>
+        <figcaption>
+          <p class="eyebrow">{event.title}</p>
+          <h3>{event.topic[language]}</h3>
+          <p>{event.caption}</p>
+        </figcaption>
+      </figure>
+    ))}
+    <div class="event-navigation">
+      <div class="event-thumbnails" aria-label={language === "pt" ? "Fotos dos eventos" : "Event photos"}>
+        {eventPhotos.map((event, index) => (
+          <button type="button" data-event-index={index} aria-pressed={index === 0 ? "true" : "false"} aria-label={`${event.title}: ${event.topic[language]}`} title={`${event.title}: ${event.topic[language]}`}>
+            <img src={event.image.src} alt="" width="54" height="68" loading="lazy" />
+          </button>
+        ))}
       </div>
-      <figcaption>{t.indexCaption}</figcaption>
-    </figure>
-    <figure class="media-slide media-feature" data-media-slide hidden>
-      <div class="media-frame" data-media-frame>
-        <img src={h2EventPhoto.src} alt="Equipe no SAE BRASIL H2 Challenge com destaque para o troféu de terceiro lugar" />
+      <div class="media-controls" data-media-controls>
+        <button type="button" data-media-prev aria-label={language === "pt" ? "Foto anterior" : "Previous photo"}>‹</button>
+        <span class="media-count" data-media-count aria-live="polite">1/{eventPhotos.length}</span>
+        <button type="button" data-media-next aria-label={language === "pt" ? "Próxima foto" : "Next photo"}>›</button>
       </div>
-      <figcaption>{t.h2Caption}</figcaption>
-    </figure>
-    <figure class="media-slide media-feature" data-media-slide hidden>
-      <div class="media-frame" data-media-frame>
-        <img src={cbaClimberPhoto.src} alt={t.cbaClimberCaption} />
-      </div>
-      <figcaption>{t.cbaClimberCaption}</figcaption>
-    </figure>
-    <figure class="media-slide media-feature" data-media-slide hidden>
-      <div class="media-frame" data-media-frame>
-        <img src={cbaRovPhoto.src} alt={t.cbaRovCaption} />
-      </div>
-      <figcaption>{t.cbaRovCaption}</figcaption>
-    </figure>
-    <figure class="media-slide media-feature" data-media-slide hidden>
-      <div class="media-frame" data-media-frame>
-        <img src={siintecTurtlePhoto.src} alt="Bruno Cunha Lima em apresentação de pôster no SIINTEC sobre retrofit do TurtleBot2i para ROS 2" />
-      </div>
-      <figcaption>{t.siintecTurtleCaption}</figcaption>
-    </figure>
-    <figure class="media-slide media-feature" data-media-slide hidden>
-      <div class="media-frame" data-media-frame>
-        <img src={siintecIotPhoto.src} alt="Bruno Cunha Lima em apresentação de pôster no SIINTEC sobre IoT e automação" />
-      </div>
-      <figcaption>{t.siintecIotCaption}</figcaption>
-    </figure>
+    </div>
   </div>
 </section>
 

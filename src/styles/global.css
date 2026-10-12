@@ -629,29 +629,128 @@ h3 {
 }
 
 .event-carousel {
-  max-width: 48rem;
-}
-
-.media-feature {
-  background: var(--surface);
-  border: 1px solid var(--line);
-  border-radius: 8px;
-  margin: 0;
-  overflow: hidden;
-}
-
-.media-feature img {
-  background: var(--surface-soft);
-  display: block;
-  height: clamp(18rem, 42vw, 30rem);
-  object-fit: contain;
-  object-position: center;
   width: 100%;
 }
 
-.media-feature figcaption {
+.media-feature {
+  align-items: center;
+  display: grid;
+  gap: 3rem;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  margin: 0;
+  min-height: 32rem;
+}
+
+.media-feature img {
+  border-radius: 6px;
+  display: block;
+  height: 32rem;
+  max-width: 100%;
+  object-fit: contain;
+  object-position: left center;
+  width: auto;
+}
+
+.media-slide.media-feature figcaption {
   color: var(--muted);
-  padding: 1rem 1.25rem;
+  font-size: 1rem;
+  max-width: 28rem;
+  padding: 0;
+}
+
+.media-feature h3 {
+  color: var(--text);
+  font-size: 1.65rem;
+  line-height: 1.25;
+  margin: 0.6rem 0 1rem;
+}
+
+.event-navigation {
+  align-items: center;
+  border-top: 1px solid var(--line);
+  display: flex;
+  gap: 1rem;
+  justify-content: space-between;
+  margin-top: 1.5rem;
+  padding-top: 1rem;
+}
+
+.event-thumbnails {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.event-thumbnails button {
+  background: transparent;
+  border: 2px solid transparent;
+  border-radius: 6px;
+  cursor: pointer;
+  height: 4.5rem;
+  opacity: 0.65;
+  overflow: hidden;
+  padding: 2px;
+  width: 3.6rem;
+}
+
+.event-thumbnails img {
+  border-radius: 3px;
+  display: block;
+  height: 100%;
+  object-fit: cover;
+  width: 100%;
+}
+
+.event-thumbnails button[aria-pressed="true"],
+.event-thumbnails button:hover {
+  border-color: var(--accent);
+  opacity: 1;
+}
+
+.event-navigation .media-controls {
+  flex-shrink: 0;
+  position: static;
+}
+
+.event-navigation .media-controls button {
+  height: 2.25rem;
+  width: 2.25rem;
+}
+
+@media (max-width: 680px) {
+  .media-feature {
+    gap: 1.25rem;
+    grid-template-columns: minmax(0, 1fr);
+    min-height: 0;
+  }
+
+  .media-feature img {
+    height: 27rem;
+    margin-inline: auto;
+    object-position: center;
+  }
+
+  .media-slide.media-feature figcaption {
+    min-height: 12rem;
+  }
+
+  .event-navigation {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .event-thumbnails {
+    gap: 0.35rem;
+  }
+
+  .event-thumbnails button {
+    height: 3.7rem;
+    width: 2.7rem;
+  }
+
+  .event-navigation .media-controls {
+    align-self: flex-end;
+  }
 }
 
 .project-detail {
