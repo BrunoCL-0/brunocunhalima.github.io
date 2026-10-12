@@ -671,19 +671,21 @@ h3 {
 }
 
 .event-navigation {
-  align-items: center;
-  border-top: 1px solid var(--line);
+  align-items: flex-start;
   display: flex;
-  gap: 1rem;
-  justify-content: space-between;
-  margin-top: 1.5rem;
-  padding-top: 1rem;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-top: 0.75rem;
+  width: calc((100% - 3rem) / 2);
 }
 
 .event-thumbnails {
+  border-top: 1px solid var(--line);
   display: flex;
   flex-wrap: wrap;
   gap: 0.5rem;
+  padding-top: 0.5rem;
+  width: 100%;
 }
 
 .event-thumbnails button {
@@ -714,8 +716,8 @@ h3 {
 
 .event-carousel .media-controls {
   justify-content: flex-end;
-  margin-top: 0.75rem;
   position: static;
+  width: 100%;
 }
 
 .event-carousel .media-controls button {
@@ -724,10 +726,14 @@ h3 {
 }
 
 @media (max-width: 680px) {
-  .media-feature {
+  .event-carousel {
+    display: grid;
     gap: 1.25rem;
     grid-template-columns: minmax(0, 1fr);
-    min-height: 0;
+  }
+
+  .media-feature {
+    display: contents;
   }
 
   .media-feature img {
@@ -737,12 +743,13 @@ h3 {
   }
 
   .media-slide.media-feature figcaption {
-    min-height: 12rem;
+    grid-row: 3;
   }
 
   .event-navigation {
-    align-items: flex-start;
-    flex-direction: column;
+    grid-row: 2;
+    margin-top: 0;
+    width: 100%;
   }
 
   .event-thumbnails {
@@ -755,6 +762,7 @@ h3 {
   }
 
   .media-feature .media-frame {
+    grid-row: 1;
     margin-inline: auto;
   }
 }
