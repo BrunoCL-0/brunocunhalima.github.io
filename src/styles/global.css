@@ -651,6 +651,11 @@ h3 {
   width: auto;
 }
 
+.media-feature .media-frame {
+  max-width: 100%;
+  width: fit-content;
+}
+
 .media-slide.media-feature figcaption {
   color: var(--muted);
   font-size: 1rem;
@@ -707,12 +712,12 @@ h3 {
   opacity: 1;
 }
 
-.event-navigation .media-controls {
-  flex-shrink: 0;
-  position: static;
+.event-carousel .media-controls {
+  bottom: 0.75rem;
+  right: 0.75rem;
 }
 
-.event-navigation .media-controls button {
+.event-carousel .media-controls button {
   height: 2.25rem;
   width: 2.25rem;
 }
@@ -748,8 +753,8 @@ h3 {
     width: 2.7rem;
   }
 
-  .event-navigation .media-controls {
-    align-self: flex-end;
+  .media-feature .media-frame {
+    margin-inline: auto;
   }
 }
 

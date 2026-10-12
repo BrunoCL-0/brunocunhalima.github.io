@@ -271,7 +271,7 @@ const projectVideos = {
       const activeFrame = slides[current]?.querySelector("[data-media-frame]");
       const count = controls?.querySelector("[data-media-count]");
       if (count) count.textContent = `${current + 1}/${slides.length}`;
-      if (controls && activeFrame && !gallery.hasAttribute("data-event-carousel")) activeFrame.append(controls);
+      if (controls && activeFrame) activeFrame.append(controls);
       thumbnails.forEach((button, index) => button.setAttribute("aria-pressed", String(index === current)));
     }
 
@@ -300,6 +300,13 @@ const projectVideos = {
       <figure class="media-slide media-feature" data-media-slide hidden={index !== 0}>
         <div class="media-frame" data-media-frame>
           <img src={event.image.src} alt={event.caption} width={event.image.width} height={event.image.height} loading="lazy" />
+          {index === 0 && (
+            <div class="media-controls" data-media-controls>
+              <button type="button" data-media-prev aria-label={language === "pt" ? "Foto anterior" : "Previous photo"}>‹</button>
+              <span class="media-count" data-media-count aria-live="polite">1/{eventPhotos.length}</span>
+              <button type="button" data-media-next aria-label={language === "pt" ? "Próxima foto" : "Next photo"}>›</button>
+            </div>
+          )}
         </div>
         <figcaption>
           <p class="eyebrow">{event.title}</p>
@@ -315,11 +322,6 @@ const projectVideos = {
             <img src={event.image.src} alt="" width="54" height="68" loading="lazy" />
           </button>
         ))}
-      </div>
-      <div class="media-controls" data-media-controls>
-        <button type="button" data-media-prev aria-label={language === "pt" ? "Foto anterior" : "Previous photo"}>‹</button>
-        <span class="media-count" data-media-count aria-live="polite">1/{eventPhotos.length}</span>
-        <button type="button" data-media-next aria-label={language === "pt" ? "Próxima foto" : "Next photo"}>›</button>
       </div>
     </div>
   </div>
