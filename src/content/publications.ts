@@ -32,31 +32,33 @@ export const publications: Publication[] = [
   },
   {
     title: {
-      pt: "Development and Experimental Evaluation of a Tendon-Driven external Pipe-crawling Robot",
-      en: "Development and Experimental Evaluation of a Tendon-Driven external Pipe-crawling Robot"
+      pt: "Development and Experimental Evaluation of a Tendon-Driven External Pipe-Crawling Robot",
+      en: "Development and Experimental Evaluation of a Tendon-Driven External Pipe-Crawling Robot"
     },
     venue: {
       pt: "Congresso Brasileiro de Automática 2026 - CBA 2026",
       en: "Brazilian Congress of Automatica - CBA 2026"
     },
     status: {
-      pt: "Aceito para apresentação; publicação nos anais do evento ainda pendente.",
-      en: "Accepted for presentation; proceedings publication still pending."
-    }
+      pt: "Apresentado no CBA 2026; publicado na coleção de preprints do evento.",
+      en: "Presented at CBA 2026; published in the event's preprint collection."
+    },
+    href: "https://ojs.sba.org.br/index.php/cba/article/view/5946"
   },
   {
     title: {
-      pt: "Hydrodynamic Modeling of Open-Frame Structure ROVs Using Boundary Element Method and Simulation Validation",
-      en: "Hydrodynamic Modeling of Open-Frame Structure ROVs Using Boundary Element Method and Simulation Validation"
+      pt: "Hydrodynamic Modeling of open-frame structure ROVs Using Boundary Element Method and Simulation Validation",
+      en: "Hydrodynamic Modeling of open-frame structure ROVs Using Boundary Element Method and Simulation Validation"
     },
     venue: {
       pt: "Congresso Brasileiro de Automática 2026 - CBA 2026",
       en: "Brazilian Congress of Automatica - CBA 2026"
     },
     status: {
-      pt: "Aceito para apresentação; publicação nos anais do evento ainda pendente.",
-      en: "Accepted for presentation; proceedings publication still pending."
-    }
+      pt: "Apresentado no CBA 2026; publicado na coleção de preprints do evento.",
+      en: "Presented at CBA 2026; published in the event's preprint collection."
+    },
+    href: "https://ojs.sba.org.br/index.php/cba/article/view/5802"
   },
   {
     title: {

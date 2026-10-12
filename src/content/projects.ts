@@ -20,6 +20,7 @@ export type Project = {
   title: Record<Language, string>;
   summary: Record<Language, string>;
   context: Record<Language, string>;
+  publicationHref?: string;
   contribution: Record<Language, string[]>;
   detailSections?: {
     title: Record<Language, string>;
@@ -225,9 +226,10 @@ const projectItems: Project[] = [
       en: "Proof of concept for a pipe-climbing robot with tendon-driven flexible manipulators, combining rigid structure, compliant interfaces, and experimental validation in a horizontal pipe."
     },
     context: {
-      pt: "Projeto ligado ao TCC, voltado à prova de conceito de um robô escalador de dutos com manipuladores flexíveis acionados por tendão. Parte desse desenvolvimento foi publicada no Congresso Brasileiro de Automática (CBA).",
-      en: "Project connected to my undergraduate thesis, focused on a proof of concept for a pipe-climbing robot with tendon-driven flexible manipulators. Part of this development was published at the Brazilian Congress of Automatica (CBA)."
+      pt: "Projeto ligado ao TCC, voltado à prova de conceito de um robô escalador de dutos com manipuladores flexíveis acionados por tendão. Parte desse desenvolvimento foi apresentada no CBA 2026 e publicada na coleção de preprints do evento.",
+      en: "Project connected to my undergraduate thesis, focused on a proof of concept for a pipe-climbing robot with tendon-driven flexible manipulators. Part of this development was presented at CBA 2026 and published in the event's preprint collection."
     },
+    publicationHref: "https://ojs.sba.org.br/index.php/cba/article/view/5946",
     contribution: {
       pt: [
         "Desenvolvimento de algoritmos para operação e movimentação do robô.",

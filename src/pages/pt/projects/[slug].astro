@@ -60,6 +60,7 @@ const detailImages = [
     <section>
       <h2>Contexto</h2>
       <p>{project.context.pt}</p>
+      {project.publicationHref && <a href={project.publicationHref} target="_blank" rel="noreferrer">Acessar artigo</a>}
     </section>
     <section>
       <h2>Minha contribuição</h2>
