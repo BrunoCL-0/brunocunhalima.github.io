@@ -713,8 +713,9 @@ h3 {
 }
 
 .event-carousel .media-controls {
-  bottom: 0.75rem;
-  right: 0.75rem;
+  justify-content: flex-end;
+  margin-top: 0.75rem;
+  position: static;
 }
 
 .event-carousel .media-controls button {
