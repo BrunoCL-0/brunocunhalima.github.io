@@ -69,7 +69,6 @@ const copy = {
       "Apresentação no CBA 2026 do trabalho sobre desenvolvimento e avaliação experimental de um robô escalador de dutos com manipuladores flexíveis.",
     cbaRovCaption:
       "Apresentação no CBA 2026 do trabalho sobre modelagem hidrodinâmica de ROVs de estrutura aberta com o método dos elementos de contorno e validação em simulação.",
-    readArticle: "Acessar artigo",
     experience: "Experiência profissional",
     extracurricular: "Pesquisa voluntária e equipes",
     publications: "Publicações",
@@ -109,7 +108,6 @@ const copy = {
       "CBA 2026 presentation of the work on the development and experimental evaluation of a pipe-climbing robot with flexible manipulators.",
     cbaRovCaption:
       "CBA 2026 presentation of the work on hydrodynamic modeling of open-frame ROVs using the Boundary Element Method and simulation validation.",
-    readArticle: "Read article",
     experience: "Experience",
     extracurricular: "Volunteer research and teams",
     publications: "Publications",
@@ -280,24 +278,12 @@ const projectVideos = {
   <div class="media-gallery event-carousel" data-carousel>
     <figure class="media-slide media-feature" data-media-slide>
       <div class="media-frame" data-media-frame>
-        <img src={cbaClimberPhoto.src} alt={t.cbaClimberCaption} />
+        <img src={indexPhoto.src} alt="Bruno Cunha Lima em demonstração de robótica no evento INDEX" />
         <div class="media-controls" data-media-controls aria-label="Event media controls">
           <button type="button" data-media-prev aria-label="Previous event photo">‹</button>
           <span class="media-count" data-media-count aria-live="polite">1/6</span>
           <button type="button" data-media-next aria-label="Next event photo">›</button>
         </div>
-      </div>
-      <figcaption>{t.cbaClimberCaption} <a href="https://ojs.sba.org.br/index.php/cba/article/view/5946" target="_blank" rel="noreferrer">{t.readArticle}</a></figcaption>
-    </figure>
-    <figure class="media-slide media-feature" data-media-slide hidden>
-      <div class="media-frame" data-media-frame>
-        <img src={cbaRovPhoto.src} alt={t.cbaRovCaption} />
-      </div>
-      <figcaption>{t.cbaRovCaption} <a href="https://ojs.sba.org.br/index.php/cba/article/view/5802" target="_blank" rel="noreferrer">{t.readArticle}</a></figcaption>
-    </figure>
-    <figure class="media-slide media-feature" data-media-slide hidden>
-      <div class="media-frame" data-media-frame>
-        <img src={indexPhoto.src} alt="Bruno Cunha Lima em demonstração de robótica no evento INDEX" />
       </div>
       <figcaption>{t.indexCaption}</figcaption>
     </figure>
@@ -306,6 +292,18 @@ const projectVideos = {
         <img src={h2EventPhoto.src} alt="Equipe no SAE BRASIL H2 Challenge com destaque para o troféu de terceiro lugar" />
       </div>
       <figcaption>{t.h2Caption}</figcaption>
+    </figure>
+    <figure class="media-slide media-feature" data-media-slide hidden>
+      <div class="media-frame" data-media-frame>
+        <img src={cbaClimberPhoto.src} alt={t.cbaClimberCaption} />
+      </div>
+      <figcaption>{t.cbaClimberCaption}</figcaption>
+    </figure>
+    <figure class="media-slide media-feature" data-media-slide hidden>
+      <div class="media-frame" data-media-frame>
+        <img src={cbaRovPhoto.src} alt={t.cbaRovCaption} />
+      </div>
+      <figcaption>{t.cbaRovCaption}</figcaption>
     </figure>
     <figure class="media-slide media-feature" data-media-slide hidden>
       <div class="media-frame" data-media-frame>
