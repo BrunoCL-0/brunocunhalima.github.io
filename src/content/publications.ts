@@ -39,10 +39,6 @@ export const publications: Publication[] = [
       pt: "Congresso Brasileiro de Automática 2026 - CBA 2026",
       en: "Brazilian Congress of Automatica - CBA 2026"
     },
-    status: {
-      pt: "Apresentado no CBA 2026; publicado na coleção de preprints do evento.",
-      en: "Presented at CBA 2026; published in the event's preprint collection."
-    },
     href: "https://ojs.sba.org.br/index.php/cba/article/view/5946"
   },
   {
@@ -53,10 +49,6 @@ export const publications: Publication[] = [
     venue: {
       pt: "Congresso Brasileiro de Automática 2026 - CBA 2026",
       en: "Brazilian Congress of Automatica - CBA 2026"
-    },
-    status: {
-      pt: "Apresentado no CBA 2026; publicado na coleção de preprints do evento.",
-      en: "Presented at CBA 2026; published in the event's preprint collection."
     },
     href: "https://ojs.sba.org.br/index.php/cba/article/view/5802"
   },
