@@ -63,12 +63,12 @@ export const experiences: Experience[] = [
       pt: [
         "Modernização de uma plataforma TurtleBot2i legada com migração do stack de ROS 1 para ROS 2 Humble.",
         "Integração da base Kobuki, LiDAR Velodyne VLP-16, Orbbec Astra e Intel RealSense D435 para experimentos de navegação e percepção.",
-        "Configuração de drivers, tópicos, parâmetros, TF, URDF/Xacro, launch files, RViz, Gazebo, SLAM e Nav2, resultando em publicação técnica no SIINTEC."
+        "Configuração de drivers, tópicos, parâmetros, TF, URDF/Xacro, launch files, RViz, Gazebo, SLAM e Nav2, resultando em publicação técnica no JBTH."
       ],
       en: [
         "Modernized a legacy TurtleBot2i platform by migrating its software stack from ROS 1 to ROS 2 Humble.",
         "Integrated the Kobuki base, Velodyne VLP-16 LiDAR, Orbbec Astra, and Intel RealSense D435 for navigation and perception experiments.",
-        "Configured drivers, topics, parameters, TF, URDF/Xacro, launch files, RViz, Gazebo, SLAM, and Nav2, leading to a technical publication at SIINTEC."
+        "Configured drivers, topics, parameters, TF, URDF/Xacro, launch files, RViz, Gazebo, SLAM, and Nav2, leading to a technical publication in JBTH."
       ]
     }
   },
