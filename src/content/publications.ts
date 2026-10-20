@@ -14,10 +14,10 @@ export const publications: Publication[] = [
       en: "Mobile Robot Retrofit for the ROS2 Framework"
     },
     venue: {
-      pt: "XI SIINTEC\nINTERNATIONAL SYMPOSIUM ON\nINNOVATION AND TECHNOLOGY",
-      en: "XI SIINTEC\nINTERNATIONAL SYMPOSIUM ON\nINNOVATION AND TECHNOLOGY"
+      pt: "Journal of Bioengineering, Technologies and Health (JBTH)\n2026;9(8):817-823",
+      en: "Journal of Bioengineering, Technologies and Health (JBTH)\n2026;9(8):817-823"
     },
-    href: "https://doity.com.br/anais/senaicimatec/trabalho/472028"
+    href: "https://jbth.com.br/index.php/JBTH/article/view/699"
   },
   {
     title: {
@@ -61,10 +61,7 @@ export const publications: Publication[] = [
       pt: "XII SIINTEC\nINTERNATIONAL SYMPOSIUM ON\nINNOVATION AND TECHNOLOGY",
       en: "XII SIINTEC\nINTERNATIONAL SYMPOSIUM ON\nINNOVATION AND TECHNOLOGY"
     },
-    status: {
-      pt: "Aceito para apresentação; publicação nos anais do evento ainda pendente.",
-      en: "Accepted for presentation; proceedings publication still pending."
-    }
+    href: "https://doity.com.br/anais/jbth/trabalho/552112"
   },
   {
     title: {
@@ -75,9 +72,6 @@ export const publications: Publication[] = [
       pt: "XII SIINTEC\nINTERNATIONAL SYMPOSIUM ON\nINNOVATION AND TECHNOLOGY",
       en: "XII SIINTEC\nINTERNATIONAL SYMPOSIUM ON\nINNOVATION AND TECHNOLOGY"
     },
-    status: {
-      pt: "Aceito para apresentação; publicação nos anais do evento ainda pendente.",
-      en: "Accepted for presentation; proceedings publication still pending."
-    }
+    href: "https://doity.com.br/anais/jbth/trabalho/552184"
   }
 ];
