@@ -10,6 +10,7 @@ import indexPhoto from "../assets/bruno-robotics.jpeg";
 import h2EventPhoto from "../assets/h2-event-trophy.png";
 import siintecIotPhoto from "../assets/siintec-iot-presentation.jpeg";
 import siintecTurtlePhoto from "../assets/siintec-turtle-presentation.png";
+import siintecSlamPhoto from "../assets/siintec-slam-presentation.jpeg";
 import cbaClimberPhoto from "../assets/cba-pipe-climber-presentation.jpeg";
 import cbaRovPhoto from "../assets/cba-rov-presentation.jpeg";
 import turtlebotPhoto from "../assets/turtlebot2i-retrofit.jpeg";
@@ -65,6 +66,8 @@ const copy = {
       "Apresentação no SIINTEC do trabalho sobre retrofit do TurtleBot2i para ROS 2.",
     siintecIotCaption:
       "Apresentação no SIINTEC do trabalho sobre sistema de medição elétrica residencial com IoT e automação.",
+    siintecSlamCaption:
+      "Apresentação no XII SIINTEC 2026 do trabalho sobre avaliação experimental de configurações de SLAM com RGB-D e LiDAR em uma plataforma TurtleBot2i.",
     cbaClimberCaption:
       "Apresentação no CBA 2026 do trabalho sobre desenvolvimento e avaliação experimental de um robô escalador de dutos com manipuladores flexíveis.",
     cbaRovCaption:
@@ -104,6 +107,8 @@ const copy = {
       "SIINTEC presentation of the work on the TurtleBot2i retrofit for ROS 2.",
     siintecIotCaption:
       "SIINTEC presentation of the work on a residential electrical measurement system with IoT and automation.",
+    siintecSlamCaption:
+      "XII SIINTEC 2026 presentation of the work on the experimental evaluation of RGB-D- and LiDAR-based SLAM configurations on a TurtleBot2i platform.",
     cbaClimberCaption:
       "CBA 2026 presentation of the work on the development and experimental evaluation of a pipe-climbing robot with flexible manipulators.",
     cbaRovCaption:
@@ -134,7 +139,8 @@ const eventPhotos = [
   { image: cbaClimberPhoto, title: "CBA 2026", topic: { pt: "Robô escalador de dutos", en: "Pipe-climbing robot" }, caption: t.cbaClimberCaption },
   { image: cbaRovPhoto, title: "CBA 2026", topic: { pt: "Modelagem hidrodinâmica de ROVs", en: "ROV hydrodynamic modeling" }, caption: t.cbaRovCaption },
   { image: siintecTurtlePhoto, title: "XI SIINTEC 2025", topic: { pt: "Retrofit do TurtleBot2i", en: "TurtleBot2i retrofit" }, caption: t.siintecTurtleCaption },
-  { image: siintecIotPhoto, title: "XI SIINTEC 2025", topic: { pt: "Medição elétrica e IoT", en: "Electrical measurement and IoT" }, caption: t.siintecIotCaption }
+  { image: siintecIotPhoto, title: "XI SIINTEC 2025", topic: { pt: "Medição elétrica e IoT", en: "Electrical measurement and IoT" }, caption: t.siintecIotCaption },
+  { image: siintecSlamPhoto, title: "XII SIINTEC 2026", topic: { pt: "SLAM com RGB-D e LiDAR", en: "RGB-D and LiDAR SLAM" }, caption: t.siintecSlamCaption }
 ];
 const hero = profile.hero[language];
 const projectImages = {
